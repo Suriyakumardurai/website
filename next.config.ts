@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
-  },
+  } as any,
   async headers() {
     return [
       {

@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as any } },
 };
 
 const stagger = {
@@ -24,7 +24,7 @@ export function FadeUp({ children, delay = 0, className = "" }: { children: Reac
       animate={inView ? "show" : "hidden"}
       variants={{
         hidden: { opacity: 0, y: 32 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] as any } },
       }}
     >
       {children}
@@ -59,7 +59,7 @@ export function SlideIn({ children, from = "left", className = "" }: { children:
       className={className}
       initial={{ opacity: 0, x: from === "left" ? -48 : 48 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as any }}
     >
       {children}
     </motion.div>
@@ -75,7 +75,7 @@ export function ScaleIn({ children, className = "" }: { children: React.ReactNod
       className={className}
       initial={{ opacity: 0, scale: 0.92 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as any }}
     >
       {children}
     </motion.div>
@@ -91,7 +91,7 @@ export function LineReveal({ text, className = "" }: { text: string; className?:
         className={className}
         initial={{ y: "100%" }}
         animate={inView ? { y: 0 } : {}}
-        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] as any }}
       >
         {text}
       </motion.div>
@@ -124,7 +124,7 @@ export function WordReveal({ text, className = "", delay = 0 }: { text: string; 
           style={{ display: "inline-block", marginRight: "0.25em" }}
           variants={{
             hidden: { opacity: 0, y: 15, filter: "blur(4px)" },
-            visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+            visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } }
           }}
         >
           {word}
@@ -144,7 +144,7 @@ export function RevealSection({ children, className = "" }: { children: React.Re
       className={className}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
     >
       {children}
     </motion.div>
