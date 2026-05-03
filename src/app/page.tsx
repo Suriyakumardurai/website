@@ -244,7 +244,7 @@ export default function Home() {
             <div>
               <div className="section-tag">About</div>
               <h2 className="h2-reveal">
-                <WordReveal text="Not an agency. An AI engineering team." />
+                <WordReveal text="Indian SMB AI Engineering Team." />
               </h2>
               <p className="section-sub" style={{ marginBottom: "1.5rem" }}>
                 AutoPlanet was built from day one to do one thing: ship AI products that work. No strategy-only retainers, no 6-month timelines, no vague roadmaps.
@@ -281,7 +281,7 @@ export default function Home() {
           <div>
             <div className="section-tag">Services</div>
             <h2 className="h2-reveal">
-              <WordReveal text="AI-first. Always." />
+              <WordReveal text="AI Automation. Built in India." />
             </h2>
           </div>
           <p className="section-sub" style={{ paddingTop: "1rem" }}>
@@ -530,22 +530,22 @@ export default function Home() {
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Magnetic>
-              <a href="mailto:hello@autoplanet.ai" className="btn-primary">Book a free call <ArrowRight size={18} /></a>
+              <a href="mailto:ceo@autoplanetcorp.com" className="btn-primary">Book a free call <ArrowRight size={18} /></a>
             </Magnetic>
             <Magnetic>
-              <a href="mailto:hello@autoplanet.ai" className="btn-ghost"><Mail size={18} /> hello@autoplanet.ai</a>
+              <a href="mailto:ceo@autoplanetcorp.com" className="btn-ghost"><Mail size={18} /> ceo@autoplanetcorp.com</a>
             </Magnetic>
           </div>
         </div>
       </RevealSection>
 
       <footer>
-        <div className="footer-copy">© 2025 AutoPlanet. All rights reserved.</div>
+        <div className="footer-copy">© 2026 AutoPlanet. All rights reserved.</div>
         <ul className="footer-links">
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Discord</a></li>
-          <li><a href="mailto:hello@autoplanet.ai">Contact</a></li>
+          <li><a href="https://x.com/ceoofautoplanet" target="_blank" rel="noopener noreferrer me">Twitter</a></li>
+          <li><a href="https://www.linkedin.com/company/autoplanet-corporation" target="_blank" rel="noopener noreferrer me">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/autoplanet.corp" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
+          <li><a href="mailto:ceo@autoplanetcorp.com">Contact</a></li>
         </ul>
       </footer>
     </>

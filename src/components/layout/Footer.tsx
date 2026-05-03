@@ -26,14 +26,18 @@ export default function Footer() {
               Transforming ideas into digital reality. We build the future of the web, one project at a time.
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
-              {['𝕏', 'in', 'GH', 'IG'].map((icon, i) => (
-                <a key={i} href="#" style={{
+              {[
+                { icon: '𝕏', link: 'https://x.com/ceoofautoplanet', label: 'Follow on X (Twitter)' },
+                { icon: 'in', link: 'https://www.linkedin.com/company/autoplanet-corporation', label: 'Connect on LinkedIn' },
+                { icon: 'IG', link: 'https://www.instagram.com/autoplanet.corp', label: 'Follow on Instagram' }
+              ].map((item, i) => (
+                <a key={i} href={item.link} target="_blank" rel="noopener noreferrer me" aria-label={item.label} style={{
                   width: 40, height: 40, borderRadius: 12,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 12, fontWeight: 700,
                   background: 'rgba(124, 58, 237, 0.06)', border: '1px solid rgba(124, 58, 237, 0.1)',
                   color: '#9b9bc0', textDecoration: 'none', transition: 'all 0.3s',
-                }}>{icon}</a>
+                }}>{item.icon}</a>
               ))}
             </div>
           </motion.div>
@@ -57,7 +61,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div style={{ paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' as const, gap: 16, borderTop: '1px solid rgba(124, 58, 237, 0.06)' }}>
-          <p style={{ fontSize: 12, color: '#5b5b80' }}>© 2024 AutoPlanet. All rights reserved.</p>
+          <p style={{ fontSize: 12, color: '#5b5b80' }}>© 2026 AutoPlanet. All rights reserved.</p>
           <p style={{ fontSize: 12, color: '#5b5b80' }}>Crafted with precision by the AutoPlanet team</p>
         </div>
       </div>

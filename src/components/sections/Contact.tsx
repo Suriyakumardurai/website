@@ -43,8 +43,9 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
             style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {[
-              { icon: '📧', label: 'Email', value: 'hello@autoplanet.dev', sub: 'Drop us a line anytime' },
-              { icon: '📍', label: 'Location', value: 'Global — Remote First', sub: 'Working across all timezones' },
+              { icon: '📧', label: 'Email', value: 'ceo@autoplanetcorp.com', sub: 'Drop us a line anytime' },
+              { icon: '📞', label: 'Phone', value: '+91 7904914455', sub: 'Available Mon-Fri, 9am-6pm' },
+              { icon: '📍', label: 'Location', value: 'Villupuram, Tamil Nadu', sub: 'Serving Indian SMBs' },
               { icon: '⏰', label: 'Response Time', value: 'Within 24 hours', sub: 'We value your time' },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }}

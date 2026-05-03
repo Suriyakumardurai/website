@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const Globe = dynamic(() => import("../three/Globe"), { ssr: false });
@@ -88,12 +89,18 @@ export default function BrandLogo() {
           <span style={{ fontSize: "1.2em", marginTop: "2px" }}>better</span>
         </motion.div>
 
-        <motion.img 
-          src="/logo.png" 
-          alt="AutoPlanet Logo" 
-          className="brand-image" 
-          style={{ x: logoX, zIndex: 2 }}
-        />
+        <motion.div
+          style={{ x: logoX, zIndex: 2, width: 111, height: 111, position: 'relative' }}
+          className="brand-image"
+        >
+          <Image 
+            src="/logo.png" 
+            alt="AutoPlanet Corporation Logo" 
+            fill
+            style={{ objectFit: 'contain' }}
+            priority
+          />
+        </motion.div>
       </div>
       <motion.div 
         className="brand-text"
