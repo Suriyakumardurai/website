@@ -23,6 +23,8 @@ import {
 } from "lucide-react";
 import BrandLogo from "@/components/layout/BrandLogo";
 import { FadeUp, StaggerGrid, StaggerItem, SlideIn, ScaleIn, WordReveal, RevealSection, Magnetic } from "@/components/Animate";
+import LivePipeline from "@/components/sections/LivePipeline";
+import ScrollProgress from "@/components/sections/ScrollProgress";
 
 const services = [
   { icon: Cpu, title: "Custom LLM Development", desc: "Fine-tuned models, RAG pipelines, and prompt architectures trained on your data. Your AI, your rules." },
@@ -49,17 +51,17 @@ const faqs = [
 
 const plans = [
   {
-    name: "Starter", price: "$4,900", period: "one-time", desc: "For founders who need a fast, focused AI feature shipped.",
-    features: ["1 AI feature or integration", "Up to 3 weeks delivery", "LLM + API setup", "30-day support"],
+    name: "Starter", price: "₹29,000", period: "one-time", desc: "For founders who need a fast, focused AI feature shipped.",
+    features: ["1 AI feature or integration", "Up to 2 weeks delivery", "LLM + API setup", "30-day support"],
     cta: "Get started", highlight: false,
   },
   {
-    name: "Build", price: "$12,500", period: "one-time", desc: "For teams shipping a complete AI product or agent from scratch.",
-    features: ["Full product or agent build", "6–8 week delivery", "Custom LLM / RAG pipeline", "Auth, billing, dashboard", "60-day support"],
+    name: "Build", price: "₹89,000", period: "one-time", desc: "For teams shipping a complete AI product or agent from scratch.",
+    features: ["Full product or agent build", "4–6 week delivery", "Custom LLM / RAG pipeline", "Auth, billing, dashboard", "60-day support"],
     cta: "Start a project", highlight: true,
   },
   {
-    name: "Retainer", price: "$5,500", period: "/ month", desc: "Ongoing AI engineering embedded in your team.",
+    name: "Retainer", price: "₹45,000", period: "/ month", desc: "Ongoing AI engineering embedded in your team.",
     features: ["Dedicated AI engineer", "Weekly sprints", "Unlimited iterations", "Priority response", "Monthly strategy calls"],
     cta: "Book a call", highlight: false,
   },
@@ -132,6 +134,7 @@ export default function Home() {
 
   return (
     <>
+      <ScrollProgress />
       <nav>
         <BrandLogo />
         <ul className="nav-links">
@@ -146,12 +149,7 @@ export default function Home() {
 
       {/* HERO */}
       <section id="hero" ref={heroRef}>
-        <motion.div className="mosaic" aria-hidden="true" style={{ y: heroY }}>
-          {Array.from({ length: 15 }).map((_, i) => (
-            <div key={i} className="mosaic-tile" />
-          ))}
-        </motion.div>
-        <div className="mosaic-overlay" />
+        {/* Background effects removed for a cleaner look */}
 
         <motion.div className="hero-content" style={{ opacity: heroOpacity }}>
           <motion.div
@@ -173,7 +171,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.85 }}
           >
-            Agents, SaaS products, automations, and LLM systems — built fast, built right. AutoPlanet is the AI engineering team you hire when you need results, not slide decks.
+            We build AI SaaS products, automate your workflows, and craft digital experiences — powered by the latest in artificial intelligence.
           </motion.p>
 
           <motion.div
@@ -230,13 +228,8 @@ export default function Home() {
       <section id="about">
         <div className="about-grid">
           <SlideIn from="left">
-            <div className="about-visual" aria-hidden="true">
-              <div className="about-visual-inner">
-                <div className="orbit-ring"><div className="orbit-dot" /></div>
-                <div className="orbit-ring"><div className="orbit-dot" /></div>
-                <div className="orbit-ring"><div className="orbit-dot" /></div>
-                <div className="orbit-center">AP</div>
-              </div>
+            <div className="about-visual">
+              <LivePipeline />
             </div>
           </SlideIn>
 
@@ -244,13 +237,13 @@ export default function Home() {
             <div>
               <div className="section-tag">About</div>
               <h2 className="h2-reveal">
-                <WordReveal text="Indian SMB AI Engineering Team." />
+                <WordReveal text="Built from the ground up with AI." />
               </h2>
               <p className="section-sub" style={{ marginBottom: "1.5rem" }}>
-                AutoPlanet was built from day one to do one thing: ship AI products that work. No strategy-only retainers, no 6-month timelines, no vague roadmaps.
+                AutoPlanet isn&apos;t an agency that adopted AI — we were born from it. Every product we ship, every workflow we design, every line of code we write is AI-native from day one.
               </p>
               <p className="section-sub">
-                We're a small, senior team of AI engineers and product builders. Every project gets our full attention, and everything we ship is production-ready with full code ownership transferred to you.
+                We exist at the intersection of intelligence and design — where ambitious ideas meet the tools to make them inevitable.
               </p>
 
               <StaggerGrid className="about-stats">
