@@ -3,6 +3,7 @@ import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CursorBlob from "@/components/CursorBlob";
+import FaviconAnimation from "../components/FaviconAnimation";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-serif",
@@ -20,15 +21,15 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AutoPlanet Corporation | AI-Powered Automation for Indian SMBs",
-  description: "AutoPlanet Corporation builds affordable AI-powered SaaS tools for Indian Small and Medium Businesses. Automate workflows, reduce costs, and grow smarter. Villupuram, Tamil Nadu.",
-  keywords: ["AI SaaS India", "SMB automation", "AI tools for small business", "AutoPlanet Corporation", "business automation Tamil Nadu"],
+  title: "AutoPlanet Corporation | AI-Powered Automation for Your Business",
+  description: "AutoPlanet Corporation builds elite AI-powered solutions to automate workflows, reduce costs, and accelerate growth for modern businesses.",
+  keywords: ["Enterprise AI Solutions", "Autonomous Workflows", "AI Automation India", "Corporate AI SaaS", "AutoPlanet Corporation", "Digital Transformation"],
   alternates: {
     canonical: "https://autoplanetcorp.com",
   },
   openGraph: {
     title: "AutoPlanet Corporation",
-    description: "AI-Powered Automation & Solutions for Indian SMBs",
+    description: "AI-Powered Automation & Solutions for Your Business",
     url: "https://autoplanetcorp.com",
     siteName: "AutoPlanet Corporation",
     images: [
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
         url: "https://autoplanetcorp.com/logo.png",
         width: 1200,
         height: 630,
-        alt: "AutoPlanet Corporation - AI-Powered Automation for Indian SMBs",
+        alt: "AutoPlanet Corporation - AI-Powered Automation for Your Business",
       },
     ],
     locale: "en_IN",
@@ -49,11 +50,6 @@ export const metadata: Metadata = {
     title: "AutoPlanet Corporation",
     description: "AI-Powered Automation & Solutions for Indian SMBs",
     images: ["https://autoplanetcorp.com/logo.png"],
-  },
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
   },
   robots: {
     index: true,
@@ -254,6 +250,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <div className="glow-orb glow-1" aria-hidden="true" />
         <div className="glow-orb glow-2" aria-hidden="true" />
         <SmoothScroll>
+          <FaviconAnimation />
           <CursorBlob />
           {children}
         </SmoothScroll>

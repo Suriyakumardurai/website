@@ -45,7 +45,7 @@ export default function Contact() {
             {[
               { icon: '📧', label: 'Email', value: 'ceo@autoplanetcorp.com', sub: 'Drop us a line anytime' },
               { icon: '📞', label: 'Phone', value: '+91 7904914455', sub: 'Available Mon-Fri, 9am-6pm' },
-              { icon: '📍', label: 'Location', value: 'Villupuram, Tamil Nadu', sub: 'Serving Indian SMBs' },
+              { icon: '📍', label: 'Location', value: 'Villupuram, Tamil Nadu', sub: 'Global Business Excellence' },
               { icon: '⏰', label: 'Response Time', value: 'Within 24 hours', sub: 'We value your time' },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.6 }}
@@ -106,7 +106,10 @@ export default function Contact() {
                 background: 'linear-gradient(135deg, #7c3aed, #a855f7, #06b6d4)',
                 boxShadow: '0 4px 20px rgba(124, 58, 237, 0.3)',
                 transition: 'all 0.3s ease',
-              }}>
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(124, 58, 23, 0.54)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(124, 58, 237, 0.3)'; e.currentTarget.style.transform = 'translateY(0px)'; }}
+              >
                 {submitted ? '✓ Message Sent Successfully!' : 'Send Message →'}
               </button>
             </form>

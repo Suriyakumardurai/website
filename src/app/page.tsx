@@ -22,7 +22,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import BrandLogo from "@/components/layout/BrandLogo";
-import { FadeUp, StaggerGrid, StaggerItem, SlideIn, ScaleIn, WordReveal, RevealSection, Magnetic } from "@/components/Animate";
+import { FadeUp, StaggerGrid, StaggerItem, SlideIn, ScaleIn, WordReveal, Typewriter, RevealSection, Magnetic } from "@/components/Animate";
 import LivePipeline from "@/components/sections/LivePipeline";
 import ScrollProgress from "@/components/sections/ScrollProgress";
 
@@ -140,8 +140,8 @@ export default function Home() {
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#process">Process</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
         <a href="#cta" className="nav-cta">Book a call</a>
@@ -237,13 +237,21 @@ export default function Home() {
             <div>
               <div className="section-tag">About</div>
               <h2 className="h2-reveal">
-                <WordReveal text="Built from the ground up with AI." />
+                <Typewriter text="Built from the ground up with AI." />
               </h2>
               <p className="section-sub" style={{ marginBottom: "1.5rem" }}>
-                AutoPlanet isn&apos;t an agency that adopted AI — we were born from it. Every product we ship, every workflow we design, every line of code we write is AI-native from day one.
+                <Typewriter 
+                  text="AutoPlanet isn't an agency that adopted AI — we were born from it. Every product we ship, every workflow we design, every line of code we write is AI-native from day one." 
+                  speed={0.01}
+                  delay={0.6}
+                />
               </p>
               <p className="section-sub">
-                We exist at the intersection of intelligence and design — where ambitious ideas meet the tools to make them inevitable.
+                <Typewriter 
+                  text="We exist at the intersection of intelligence and design — where ambitious ideas meet the tools to make them inevitable."
+                  speed={0.01}
+                  delay={2.0}
+                />
               </p>
 
               <StaggerGrid className="about-stats">
@@ -270,15 +278,17 @@ export default function Home() {
 
       {/* SERVICES */}
       <section id="services">
+        <div className="section-tag">Services</div>
         <div className="services-header">
-          <div>
-            <div className="section-tag">Services</div>
-            <h2 className="h2-reveal">
-              <WordReveal text="AI Automation. Built in India." />
-            </h2>
-          </div>
-          <p className="section-sub" style={{ paddingTop: "1rem" }}>
-            Every service we offer has AI at the core. We don't bolt AI on — we engineer it in from the start.
+          <h2 className="h2-reveal" style={{ margin: 0 }}>
+            <Typewriter text="AI Automation. Built in India." />
+          </h2>
+          <p className="section-sub">
+            <Typewriter 
+              text="Every service we offer has AI at the core. We don't bolt AI on — we engineer it in from the start."
+              speed={0.01}
+              delay={0.8}
+            />
           </p>
         </div>
 
@@ -288,9 +298,13 @@ export default function Home() {
             <div className="service-featured-content">
               <div className="service-featured-tag">Most in demand</div>
               <div className="service-featured-icon"><Bot size={32} /></div>
-              <h3>AI Agents</h3>
-              <p>
-                Fully autonomous agents that think, plan, and execute complex workflows end-to-end — across email, web, databases, APIs, and your internal tools. They don't just respond to prompts. They work.
+              <h3><Typewriter text="AI Agents" delay={1.2} /></h3>
+              <p style={{ minHeight: "80px" }}>
+                <Typewriter 
+                  text="Fully autonomous agents that think, plan, and execute complex workflows end-to-end — across email, web, databases, APIs, and your internal tools. They don't just respond to prompts. They work."
+                  speed={0.008}
+                  delay={1.5}
+                />
               </p>
               <ul className="service-featured-list">
                 <li>Customer support agents (replaces L1/L2 entirely)</li>
@@ -496,7 +510,7 @@ export default function Home() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as any }}
                       style={{ overflow: "hidden" }}
                     >
                       {item.a}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -105,32 +105,24 @@ export function WordReveal({ text, className = "", delay = 0 }: { text: string; 
   const words = text.split(" ");
 
   return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: { staggerChildren: 0.08, delayChildren: delay }
-        }
-      }}
-    >
+    <div ref={ref} className={className} style={{ display: 'inline-block', transform: 'translateZ(0)' }}>
       {words.map((word, i) => (
-        <motion.span
+        <span
           key={i}
-          style={{ display: "inline-block", marginRight: "0.25em" }}
-          variants={{
-            hidden: { opacity: 0, y: 15, filter: "blur(4px)" },
-            visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any } }
+          style={{
+            display: 'inline-block',
+            opacity: inView ? 1 : 0,
+            transform: inView ? 'translateY(0)' : 'translateY(15px)',
+            transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay + i * 0.08}s`,
+            marginRight: '0.25em',
+            willChange: 'transform, opacity',
+            backfaceVisibility: 'hidden'
           }}
         >
           {word}
-        </motion.span>
+        </span>
       ))}
-    </motion.div>
+    </div>
   );
 }
 
@@ -148,6 +140,53 @@ export function RevealSection({ children, className = "" }: { children: React.Re
     >
       {children}
     </motion.div>
+  );
+}
+
+export function Typewriter({ text, className = "", delay = 0, speed = 0.02 }: { text: string; className?: string; delay?: number; speed?: number }) {
+  const [displayText, setDisplayText] = useState("");
+  const [isStarted, setIsStarted] = useState(false);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
+
+  useEffect(() => {
+    if (inView) {
+      const timeout = setTimeout(() => setIsStarted(true), delay * 1000);
+      return () => clearTimeout(timeout);
+    }
+  }, [inView, delay]);
+
+  useEffect(() => {
+    if (isStarted) {
+      let i = 0;
+      const interval = setInterval(() => {
+        setDisplayText(text.slice(0, i + 1));
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, speed * 1000); 
+      return () => clearInterval(interval);
+    }
+  }, [isStarted, text, speed]);
+
+  return (
+    <span ref={ref} className={className} style={{ display: 'inline', whiteSpace: 'pre-wrap', transform: 'translateZ(0)' }}>
+      {displayText}
+      {isStarted && displayText.length < text.length && (
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.5, repeat: Infinity }}
+          style={{ 
+            display: 'inline-block', 
+            width: '2px', 
+            height: '1em', 
+            background: 'var(--accent)', 
+            marginLeft: '2px',
+            verticalAlign: 'middle'
+          }}
+        />
+      )}
+    </span>
   );
 }
 

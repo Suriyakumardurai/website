@@ -27,13 +27,14 @@ export default function ScrollProgress() {
           z-index: 1000;
           pointer-events: none;
           background: rgba(255, 255, 255, 0.05);
+          will-change: transform;
         }
 
         .dot-container {
           position: fixed;
           top: 0;
           right: 6px;
-          bottom: 0;
+          height: 100%;
           width: 10px;
           z-index: 1001;
           pointer-events: none;
@@ -47,7 +48,7 @@ export default function ScrollProgress() {
           border-radius: 50%;
           right: 0;
           box-shadow: 0 0 10px #c8a96e, 0 0 20px rgba(200, 169, 110, 0.5);
-          transform: translateY(-50%);
+          will-change: transform;
         }
 
         .dot-glow {
@@ -74,7 +75,7 @@ export default function ScrollProgress() {
       <div className="dot-container">
         <motion.div 
           className="floating-dot"
-          style={{ top: smoothDotTop }}
+          style={{ y: smoothDotTop }}
         >
           <motion.div 
             className="dot-glow"

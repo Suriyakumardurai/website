@@ -21,7 +21,7 @@ export default function CursorBlob() {
       cx = lerp(cx, x, 0.08);
       cy = lerp(cy, y, 0.08);
       if (blob.current) {
-        blob.current.style.transform = `translate(${cx - 200}px, ${cy - 200}px)`;
+        blob.current.style.transform = `translate(${cx - 250}px, ${cy - 250}px)`;
       }
       raf = requestAnimationFrame(tick);
     };
@@ -41,10 +41,10 @@ export default function CursorBlob() {
         position: "fixed",
         top: 0,
         left: 0,
-        width: 400,
-        height: 400,
+        width: 500,
+        height: 500,
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(200,169,110,0.1) 0%, transparent 70%)",
         pointerEvents: "none",
         zIndex: 0,
         willChange: "transform",

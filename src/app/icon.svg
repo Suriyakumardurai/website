@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    text {
+      /* This stack mimics the elegant, high-contrast serif in your image */
+      font-family: "Didot", "Bodoni MT", "Playfair Display", "Times New Roman", Georgia, serif;
+      font-weight: 600;
+      fill: #FFD700; /* Keeping your gold color */
+      text-anchor: middle;
+      dominant-baseline: central;
+      font-size: 38px;
+    }
+
+    /* All frames share a 3-second loop that snaps instantly (step-end) */
+    .frame { 
+      animation-duration: 3s; 
+      animation-iteration-count: infinite; 
+      animation-timing-function: step-end; 
+    }
+    
+    .f1 { animation-name: step1; font-size: 45px; } 
+    .f2 { animation-name: step2; }
+    .f3 { animation-name: step3; }
+    .f4 { animation-name: step4; font-size: 42px; } /* Adjusted size for serif fit */
+
+    /* The exact timing sequence */
+    @keyframes step1 { 
+      0% { opacity: 1; } 
+      15% { opacity: 0; } 
+      90% { opacity: 0; } 
+      100% { opacity: 1; } 
+    }
+    @keyframes step2 { 
+      0% { opacity: 0; } 
+      15% { opacity: 1; } 
+      30% { opacity: 0; } 
+      100% { opacity: 0; } 
+    }
+    @keyframes step3 { 
+      0% { opacity: 0; } 
+      30% { opacity: 1; } 
+      45% { opacity: 0; } 
+      100% { opacity: 0; } 
+    }
+    @keyframes step4 { 
+      0% { opacity: 0; } 
+      45% { opacity: 1; } 
+      90% { opacity: 1; } 
+      100% { opacity: 0; } 
+    }
+  </style>
+  
+  <text x="50" y="50" class="frame f1">/</text>
+  <text x="50" y="50" class="frame f2">A/</text>
+  <text x="50" y="50" class="frame f3">AP/</text>
+  <text x="50" y="50" class="frame f4">APC</text>
+</svg>
