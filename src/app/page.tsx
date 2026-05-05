@@ -49,21 +49,90 @@ const faqs = [
   { q: "Can you integrate AI into our existing product?", a: "Absolutely. That's one of our most common engagements — from 10-year-old Rails apps to modern Next.js products." },
 ];
 
+const getGmailLink = (subject: string, body: string) => {
+  const recipient = "ceo@autoplanetcorp.com";
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
+const formalTemplate = (subject: string, specificInterest: string) => {
+  const body = `Dear AutoPlanet Executive Team,
+
+I am writing to formally express interest in exploring a ${specificInterest}. We are currently evaluating AI-native solutions to enhance our operational efficiency and would like to discuss our specific requirements with your engineering leadership.
+
+Introduction:
+[Briefly introduce your company and role]
+
+Primary Objectives:
+[Detail the specific challenges or goals you wish to address with AI]
+
+Preferred Consultation Time:
+[Suggest 2-3 time slots for a 30-minute introductory call]
+
+I look forward to a formal discussion on how AutoPlanet's expertise can align with our corporate vision.
+
+Respectfully,
+[Your Name]
+[Your Company]`;
+  return getGmailLink(subject, body);
+};
+
 const plans = [
   {
     name: "Starter", price: "₹29,000", period: "one-time", desc: "For founders who need a fast, focused AI feature shipped.",
     features: ["1 AI feature or integration", "Up to 2 weeks delivery", "LLM + API setup", "30-day support"],
     cta: "Get started", highlight: false,
+    link: getGmailLink("Formal Inquiry: Starter AI Package Implementation", `Dear AutoPlanet Team,
+
+I am writing to express interest in the Starter AI Package (₹29,000) for my business. We require a fast-track AI integration and would like to discuss our requirements with your team.
+
+Specific Feature/Integration Needed:
+[Describe the single AI feature or integration you need]
+
+Company Context:
+[Briefly describe your company and current tech stack]
+
+I look forward to a formal discussion on how this implementation can be expedited.
+
+Respectfully,
+[Your Name]`)
   },
   {
     name: "Build", price: "₹89,000", period: "one-time", desc: "For teams shipping a complete AI product or agent from scratch.",
     features: ["Full product or agent build", "4–6 week delivery", "Custom LLM / RAG pipeline", "Auth, billing, dashboard", "60-day support"],
     cta: "Start a project", highlight: true,
+    link: getGmailLink("Strategic Inquiry: End-to-End AI Product/Agent Development", `Dear AutoPlanet Team,
+
+I am writing to formally express interest in the Build Package (₹89,000). We are looking to develop a complete AI product or autonomous agent from scratch and would value your expertise in engineering the full pipeline.
+
+Product/Agent Vision:
+[Describe the product or agent you wish to build]
+
+Desired Timeline:
+[e.g., 4-6 weeks]
+
+I look forward to a formal consultation to discuss the scope and strategic alignment.
+
+Respectfully,
+[Your Name]`)
   },
   {
     name: "Retainer", price: "₹45,000", period: "/ month", desc: "Ongoing AI engineering embedded in your team.",
     features: ["Dedicated AI engineer", "Weekly sprints", "Unlimited iterations", "Priority response", "Monthly strategy calls"],
     cta: "Book a call", highlight: false,
+    link: getGmailLink("Partnership Inquiry: Ongoing AI Engineering Retainer", `Dear AutoPlanet Team,
+
+I am writing to express interest in the AI Engineering Retainer partnership (₹45,000/month). We require ongoing AI expertise to be embedded within our team for continuous innovation and iteration.
+
+Ongoing Requirements:
+[Describe your team's ongoing AI engineering needs]
+
+Collaboration Model:
+[Mention any specific preferences for weekly sprints or strategy calls]
+
+I look forward to discussing a long-term partnership with AutoPlanet.
+
+Respectfully,
+[Your Name]`)
   },
 ];
 
@@ -147,7 +216,13 @@ export default function Home() {
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="#cta" className="nav-cta">Book a call</a>
+        <a 
+          href={formalTemplate("Inquiry: Exploring AI Solutions & Products", "strategic partnership and exploring your AI products")} 
+          target="_blank"
+          className="nav-cta"
+        >
+          Book a call
+        </a>
         
         <button 
           className="mobile-toggle" 
@@ -180,7 +255,14 @@ export default function Home() {
                 <li><a href="#faq" onClick={closeMenu}>FAQ</a></li>
               </ul>
               <div className="mobile-menu-footer">
-                <a href="#cta" className="btn-primary" onClick={closeMenu}>Book a free call</a>
+                <a 
+                  href={formalTemplate("Inquiry: Exploring AI Solutions & Products", "strategic partnership and exploring your AI products")} 
+                  target="_blank"
+                  className="btn-primary" 
+                  onClick={closeMenu}
+                >
+                  Book a free call
+                </a>
               </div>
             </div>
           </motion.div>
@@ -353,7 +435,7 @@ export default function Home() {
                 <li>Internal ops agents (HR, finance, ops workflows)</li>
               </ul>
               <Magnetic>
-                <a href="#cta" className="btn-primary" style={{ marginTop: "2rem", display: "inline-flex" }}>Build your agent <ArrowRight size={18} /></a>
+                <a href="#pricing" className="btn-primary" style={{ marginTop: "2rem", display: "inline-flex" }}>Build your agent <ArrowRight size={18} /></a>
               </Magnetic>
             </div>
             <div className="service-featured-visual" aria-hidden="true">
@@ -510,7 +592,12 @@ export default function Home() {
                   ))}
                 </ul>
                 <Magnetic>
-                  <a href="#cta" className={plan.highlight ? "btn-primary" : "btn-ghost"} style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}>
+                  <a 
+                    href={plan.link} 
+                    target="_blank"
+                    className={plan.highlight ? "btn-primary" : "btn-ghost"} 
+                    style={{ width: "100%", justifyContent: "center", marginTop: "auto" }}
+                  >
                     {plan.cta}
                   </a>
                 </Magnetic>
@@ -520,7 +607,7 @@ export default function Home() {
         </StaggerGrid>
 
         <FadeUp>
-          <p className="pricing-note">Need something custom? <a href="#cta">Let's talk</a> — every project is scoped individually.</p>
+          <p className="pricing-note">Need something custom? <a href={formalTemplate("Inquiry: Custom AI Solution Requirements", "customized AI solution tailored to our specific business requirements")} target="_blank">Let's talk</a> — every project is scoped individually.</p>
         </FadeUp>
       </section>
 
@@ -577,10 +664,22 @@ export default function Home() {
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Magnetic>
-              <a href="mailto:ceo@autoplanetcorp.com" className="btn-primary">Book a free call <ArrowRight size={18} /></a>
+              <a 
+                href={formalTemplate("Inquiry: Exploring AI Solutions & Products", "strategic partnership and exploring your AI products")} 
+                target="_blank"
+                className="btn-primary"
+              >
+                Book a free call <ArrowRight size={18} />
+              </a>
             </Magnetic>
             <Magnetic>
-              <a href="mailto:ceo@autoplanetcorp.com" className="btn-ghost"><Mail size={18} /> ceo@autoplanetcorp.com</a>
+              <a 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=ceo@autoplanetcorp.com" 
+                target="_blank"
+                className="btn-ghost"
+              >
+                <Mail size={18} /> ceo@autoplanetcorp.com
+              </a>
             </Magnetic>
           </div>
         </div>
@@ -592,7 +691,7 @@ export default function Home() {
           <li><a href="https://x.com/ceoofautoplanet" target="_blank" rel="noopener noreferrer me">Twitter</a></li>
           <li><a href="https://www.linkedin.com/company/autoplanet-corporation" target="_blank" rel="noopener noreferrer me">LinkedIn</a></li>
           <li><a href="https://www.instagram.com/autoplanet.corp" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
-          <li><a href="mailto:ceo@autoplanetcorp.com">Contact</a></li>
+          <li><a href={formalTemplate("General Business Inquiry", "general inquiry regarding AutoPlanet services")} target="_blank">Contact</a></li>
         </ul>
       </footer>
     </>

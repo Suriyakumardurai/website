@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 :root {
   --black: #080808;
   --white: #f5f3ef;
@@ -388,6 +393,10 @@ h1 em {
   text-decoration: none;
   transition: transform 0.2s, opacity 0.2s;
   letter-spacing: 0.01em;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto !important;
 }
 
 .btn-primary:hover {
@@ -407,6 +416,10 @@ h1 em {
   font-weight: 400;
   text-decoration: none;
   transition: border-color 0.2s, background 0.2s;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 5;
+  pointer-events: auto !important;
 }
 
 .btn-ghost:hover {
@@ -769,6 +782,9 @@ h2 em {
   overflow: hidden;
   aspect-ratio: 4/3;
   cursor: pointer;
+  z-index: 10;
+  position: relative;
+  pointer-events: auto !important;
 }
 
 .gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/7; }
