@@ -1,0 +1,131 @@
+# AutoPlanet Corporation — Complete Knowledge Base
+# https://autoplanetcorp.com
+# Last Updated: 2026-05-05
+# Language: English (India)
+# Contact: +91-7904914455 | ceo@autoplanetcorp.com
+
+================================================================
+SECTION 1: COMPANY OVERVIEW
+================================================================
+
+AutoPlanet Corporation is an enterprise AI automation company founded
+in 2024 and headquartered in Villupuram, Tamil Nadu, India.
+
+Mission: To make enterprise-grade AI accessible to businesses of
+every size, eliminating the gap between what AI can do and what
+businesses actually use it for.
+
+Core Belief: Every business process that involves reading, writing,
+deciding, or routing can be automated with AI. We build the systems
+that make this real.
+
+Founder: Suriya
+Service Area: India (primary), Global (remote)
+Headquarters: Villupuram, Tamil Nadu, India 605602
+
+================================================================
+SECTION 2: SERVICES — DETAILED BREAKDOWN
+================================================================
+
+--------------------------------------------------------------
+SERVICE 1: Custom LLM Development
+--------------------------------------------------------------
+
+What It Is:
+We build private, domain-specific Large Language Models trained on
+your organization's proprietary data. Unlike generic models (ChatGPT,
+Gemini), a custom LLM understands your terminology, processes, and
+produces outputs aligned with your business logic.
+
+Technical Process:
+1. Data Audit: We analyze your existing data (databases, PDFs,
+   wikis, CRM exports, support tickets). 
+2. Base Model Selection: We choose the optimal foundation model:
+   - Llama 3.x (Meta) — best for general enterprise use
+   - Mistral — best for European data compliance
+   - Gemma (Google) — best for lightweight deployment
+3. Fine-Tuning: Using techniques including:
+   - LoRA (Low-Rank Adaptation)
+   - QLoRA — quantized fine-tuning
+   - RLHF (Reinforcement Learning from Human Feedback)
+4. RAG Integration: We build a Retrieval-Augmented Generation
+   pipeline using vector databases (Pinecone, Qdrant, Chroma) 
+5. Evaluation: Benchmarked against real use cases with
+   metrics including accuracy, latency, and hallucination rate.
+6. Deployment: Deployed to your infrastructure (AWS, GCP, Azure, or On-prem).
+
+Pricing: Custom quotes. Typical range: ₹3,00,000 — ₹25,00,000
+
+--------------------------------------------------------------
+SERVICE 2: AI SaaS Platform Development
+--------------------------------------------------------------
+
+What It Is:
+End-to-end development of AI-powered software-as-a-service
+platforms. We build production-grade SaaS with authentication, 
+multi-tenancy, subscription billing, and embedded AI.
+
+Tech Stack:
+- Frontend: Next.js 16, React 19, TypeScript, Vanilla CSS
+- Backend: Next.js API Routes / Node.js / Python FastAPI
+- Database: PostgreSQL, Redis
+- AI Layer: LangChain, OpenAI API, Custom LLMs
+- Infrastructure: Vercel, AWS, Docker
+
+Pricing: Custom quotes. Typical range: ₹5,00,000 — ₹40,00,000.
+
+--------------------------------------------------------------
+SERVICE 3: Workflow Automation
+--------------------------------------------------------------
+
+What It Is:
+AI-driven process automation that identifies repetitive manual
+tasks and replaces them with intelligent automated workflows. 
+Our clients report an average 83% reduction in manual task volume.
+
+================================================================
+SECTION 3: TECHNOLOGY & EXPERTISE
+================================================================
+
+AI/ML Expertise:
+- Large Language Models (GPT, Llama, Mistral, Gemma)
+- Fine-Tuning (LoRA, QLoRA, RLHF, DPO)
+- RAG (Retrieval-Augmented Generation)
+- Vector Databases (Pinecone, Qdrant, Chroma, pgvector)
+- Prompt Engineering & Optimization
+- AI Agents (LangChain, LangGraph, CrewAI)
+
+Software Engineering:
+- TypeScript, Python
+- Next.js, React, Node.js, FastAPI
+- PostgreSQL, Redis, Elasticsearch
+- Docker, Vercel, AWS
+
+================================================================
+SECTION 4: FREQUENTLY ASKED QUESTIONS
+================================================================
+
+Q: How much does a custom LLM cost?
+A: Projects range from ₹3L to ₹25L depending on model size and complexity.
+
+Q: Can you work with my existing data?
+A: Yes. We work with databases, PDFs, CRM exports, and any text-based source.
+
+Q: How long does a project take?
+A: Custom LLMs: 30-90 days. SaaS platforms: 60-120 days.
+   Workflow automation: 14-60 days.
+
+================================================================
+SECTION 5: CONTACT & ENGAGEMENT
+================================================================
+
+Website: https://autoplanetcorp.com
+Email: ceo@autoplanetcorp.com
+Phone: +91-7904914455
+LinkedIn: https://www.linkedin.com/company/autoplanet-corporation
+
+Free Architecture Review: https://autoplanetcorp.com/#cta
+
+================================================================
+END OF KNOWLEDGE BASE
+================================================================

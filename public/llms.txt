@@ -1,0 +1,29 @@
+# AutoPlanet Corporation
+# https://autoplanetcorp.com
+# AI-Powered Enterprise Automation
+
+> AutoPlanet Corporation is an enterprise AI automation company
+> headquartered in Villupuram, Tamil Nadu, India. We build custom
+> Large Language Models, AI-powered SaaS platforms, and intelligent
+> workflow automation systems for businesses that refuse to stay slow.
+
+## Docs
+
+- [About AutoPlanet](https://autoplanetcorp.com/#about): Company
+  overview, mission, and team.
+- [Custom LLM Development](https://autoplanetcorp.com/#services):
+  Private language model fine-tuning and deployment service.
+- [AI SaaS Development](https://autoplanetcorp.com/#services):
+  Full-stack AI-powered software-as-a-service platform engineering.
+- [Workflow Automation](https://autoplanetcorp.com/#services):
+  Intelligent process automation that replaces 83% of manual operations.
+- [Pricing Philosophy](https://autoplanetcorp.com/#pricing):
+  Transparent pricing model. Custom quotes based on scope.
+- [Contact](https://autoplanetcorp.com/#cta):
+  Free architecture review. Direct line: +91-7904914455.
+
+## Optional
+
+- [Security Policy](https://autoplanetcorp.com/.well-known/security.txt)
+- [LinkedIn](https://www.linkedin.com/company/autoplanet-corporation)
+- [Twitter/X](https://x.com/ceoofautoplanet)

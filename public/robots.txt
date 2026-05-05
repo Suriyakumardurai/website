@@ -1,4 +1,63 @@
+# *
 User-agent: *
 Allow: /
 
+# *
+User-agent: *
+Disallow: /api
+Disallow: /_next
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# AhrefsBot
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+# SemrushBot
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# GPTBot
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /blog/
+Allow: /services/
+Disallow: /api/
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /blog/
+Allow: /services/
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /blog/
+Allow: /services/
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /blog/
+Allow: /services/
+
+# Applebot-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+# Host
+Host: https://autoplanetcorp.com
+
+# Sitemaps
 Sitemap: https://autoplanetcorp.com/sitemap.xml

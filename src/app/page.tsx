@@ -25,6 +25,7 @@ import BrandLogo from "@/components/layout/BrandLogo";
 import { FadeUp, StaggerGrid, StaggerItem, SlideIn, ScaleIn, WordReveal, Typewriter, RevealSection, Magnetic } from "@/components/Animate";
 import LivePipeline from "@/components/sections/LivePipeline";
 import ScrollProgress from "@/components/sections/ScrollProgress";
+import { ProgressiveReveal } from "@/components/ProgressiveReveal";
 
 const services = [
   { icon: Cpu, title: "Custom LLM Development", desc: "Fine-tuned models, RAG pipelines, and prompt architectures trained on your data. Your AI, your rules." },
@@ -347,7 +348,8 @@ export default function Home() {
       <div className="section-divider" />
 
       {/* ABOUT */}
-      <section id="about">
+      <ProgressiveReveal>
+      <section id="about" className="reveal-on-scroll">
         <div className="about-grid">
           <SlideIn from="left">
             <div className="about-visual">
@@ -395,11 +397,13 @@ export default function Home() {
           </SlideIn>
         </div>
       </section>
+      </ProgressiveReveal>
 
       <div className="section-divider" />
 
       {/* SERVICES */}
-      <section id="services">
+      <ProgressiveReveal>
+      <section id="services" className="reveal-on-scroll">
         <div className="section-tag">Services</div>
         <div className="services-header">
           <h2 className="h2-reveal" style={{ margin: 0 }}>
@@ -502,11 +506,13 @@ export default function Home() {
           ))}
         </StaggerGrid>
       </section>
+      </ProgressiveReveal>
 
       <div className="section-divider" />
 
       {/* PROCESS */}
-      <section id="process">
+      <ProgressiveReveal>
+      <section id="process" className="reveal-on-scroll">
         <div>
           <div className="section-tag">Process</div>
           <h2 className="h2-reveal">
@@ -531,11 +537,13 @@ export default function Home() {
           ))}
         </div>
       </section>
+      </ProgressiveReveal>
 
       <div className="section-divider" />
 
       {/* TESTIMONIALS */}
-      <section id="testimonials">
+      <ProgressiveReveal>
+      <section id="testimonials" className="reveal-on-scroll">
         <div>
           <div className="section-tag">Testimonials</div>
           <h2 className="h2-reveal">
@@ -560,11 +568,13 @@ export default function Home() {
           ))}
         </StaggerGrid>
       </section>
+      </ProgressiveReveal>
 
       <div className="section-divider" />
 
       {/* PRICING */}
-      <section id="pricing">
+      <ProgressiveReveal>
+      <section id="pricing" className="reveal-on-scroll">
         <div>
           <div className="section-tag">Pricing</div>
           <h2 className="h2-reveal">
@@ -610,11 +620,13 @@ export default function Home() {
           <p className="pricing-note">Need something custom? <a href={formalTemplate("Inquiry: Custom AI Solution Requirements", "customized AI solution tailored to our specific business requirements")} target="_blank">Let's talk</a> — every project is scoped individually.</p>
         </FadeUp>
       </section>
+      </ProgressiveReveal>
 
       <div className="section-divider" />
 
       {/* FAQ */}
-      <section id="faq">
+      <ProgressiveReveal>
+      <section id="faq" className="reveal-on-scroll">
         <div>
           <div className="section-tag">FAQ</div>
           <h2 className="h2-reveal">
@@ -649,6 +661,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      </ProgressiveReveal>
 
       <div className="section-divider" />
 

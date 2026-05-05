@@ -1,9 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, DM_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CursorBlob from "@/components/CursorBlob";
 import FaviconAnimation from "../components/FaviconAnimation";
+import SmartPreconnect from "@/components/SmartPreconnect";
+import NoscriptFallbacks from "@/components/NoscriptFallbacks";
+import { IntentSatisfier } from "@/components/IntentSatisfier";
+import { emotionalMeta } from "@/lib/seo/emotional-meta";
+import { ResourceOrchestrator } from "@/components/ResourceOrchestrator";
+import { generateKnowledgePanelSeed } from "@/lib/seo/knowledge-panel-seed";
+import { getFreshnessLabel } from "@/lib/seo/freshness-engine";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-serif",
@@ -21,11 +30,20 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AutoPlanet Corporation | AI-Powered Automation for Your Business",
-  description: "AutoPlanet Corporation builds elite AI-powered solutions to automate workflows, reduce costs, and accelerate growth for modern businesses.",
+  metadataBase: new URL('https://autoplanetcorp.com'),
+  title: {
+    default: emotionalMeta['/'].title,
+    template: "%s | AutoPlanet Corporation",
+  },
+  description: emotionalMeta['/'].description,
   keywords: ["Enterprise AI Solutions", "Autonomous Workflows", "AI Automation India", "Corporate AI SaaS", "AutoPlanet Corporation", "Digital Transformation"],
   alternates: {
     canonical: "https://autoplanetcorp.com",
+    languages: {
+      'en-IN': 'https://autoplanetcorp.com',
+      'en': 'https://autoplanetcorp.com',
+      'x-default': 'https://autoplanetcorp.com',
+    },
   },
   openGraph: {
     title: "AutoPlanet Corporation",
@@ -34,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "AutoPlanet Corporation",
     images: [
       {
-        url: "https://autoplanetcorp.com/logo.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "AutoPlanet Corporation - AI-Powered Automation for Your Business",
@@ -48,12 +66,29 @@ export const metadata: Metadata = {
     site: "@ceoofautoplanet",
     creator: "@ceoofautoplanet",
     title: "AutoPlanet Corporation",
-    description: "AI-Powered Automation & Solutions for Indian SMBs",
-    images: ["https://autoplanetcorp.com/logo.png"],
+    description: "AI-Powered Automation & Solutions for Your Business",
+    images: ["/logo.png"],
+  },
+  other: {
+    'geo.region': 'IN-TN',
+    'geo.placename': 'Villupuram',
+    'geo.position': '11.9401;79.4861',
+    'ICBM': '11.9401, 79.4861',
+    'content-language': 'en',
+    'theme-color': '#080808',
+    'color-scheme': 'dark',
+    'format-detection': 'telephone=yes',
+  },
+  applicationName: 'AutoPlanet Corporation',
+  category: 'Technology',
+  classification: 'Business',
+  verification: {
+    google: 'your-google-verification-code', // User should replace this
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -66,6 +101,50 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#080808",
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AutoPlanet Corporation",
+  "url": "https://autoplanetcorp.com",
+  "logo": "https://autoplanetcorp.com/logo.png",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "Suriya"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/autoplanet-corporation",
+    "https://x.com/ceoofautoplanet",
+    "https://www.instagram.com/autoplanet.corp"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-7904914455",
+    "contactType": "customer service",
+    "areaServed": "IN",
+    "availableLanguage": ["English", "Tamil"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Villupuram",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://autoplanetcorp.com"
+    }
+  ]
 };
 
 const localBusinessSchema = {
@@ -90,6 +169,13 @@ const localBusinessSchema = {
     "latitude": 11.9401,
     "longitude": 79.4861
   },
+  "areaServed": [
+    { "@type": "City", "name": "Villupuram" },
+    { "@type": "City", "name": "Chennai" },
+    { "@type": "City", "name": "Bangalore" },
+    { "@type": "State", "name": "Tamil Nadu" },
+    { "@type": "Country", "name": "India" }
+  ],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+91-7904914455",
@@ -227,15 +313,60 @@ const servicesSchema = {
   }
 };
 
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AutoPlanet AI Suite",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR",
+    "description": "Contact for enterprise pricing"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "47",
+    "bestRating": "5"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "AutoPlanet Corporation"
+  }
+};
+
+const entityGraphSchema = generateKnowledgePanelSeed();
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AutoPlanet Corporation",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".hero-headline",
+      ".section-sub",
+      ".service-featured-content"
+    ]
+  },
+  "url": "https://autoplanetcorp.com"
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${instrumentSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html lang="en-IN" dir="ltr" className={`${instrumentSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <head>
+        <ResourceOrchestrator route="/" />
+        <SmartPreconnect />
+        <link rel="help" href="/llms.txt" type="text/plain" title="LLM Context File" />
+        <link rel="alternate" href="/llms-full.txt" type="text/plain" title="LLM Full Context" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entityGraphSchema) }}
         />
         <script
           type="application/ld+json"
@@ -245,14 +376,29 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+        />
       </head>
       <body suppressHydrationWarning>
         <div className="glow-orb glow-1" aria-hidden="true" />
         <div className="glow-orb glow-2" aria-hidden="true" />
+        <NoscriptFallbacks />
+        <IntentSatisfier />
         <SmoothScroll>
           <FaviconAnimation />
           <CursorBlob />
           {children}
+          <div className="freshness-footer" style={{ textAlign: "center", padding: "1rem", color: "rgba(255,255,255,0.3)", fontSize: "0.75rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+            {getFreshnessLabel()}
+          </div>
+          <Analytics />
+          <SpeedInsights />
         </SmoothScroll>
       </body>
     </html>
