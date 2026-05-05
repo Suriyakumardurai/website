@@ -122,7 +122,7 @@ export default function BrandLogo() {
         </motion.div>
 
         <motion.div
-          style={{ x: logoX, zIndex: 2, width: 111, height: 111, position: 'relative' }}
+          style={{ x: logoX, zIndex: 2, position: 'relative' }}
           className="brand-image"
         >
           <Image 

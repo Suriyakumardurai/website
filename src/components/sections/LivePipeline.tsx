@@ -427,6 +427,51 @@ export default function LivePipeline() {
         .model-pill .dot { width: 4px; height: 4px; border-radius: 50%; }
 
         .scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 10; border-radius: 20px; }
+
+        @media (max-width: 1024px) {
+          .pipeline-card { min-height: 550px; }
+          .stats-row { grid-template-columns: repeat(4, 1fr); }
+          .stat { padding: 12px; }
+          .stat-val { font-size: 16px; }
+          .steps-track { margin-top: 15px; }
+        }
+
+        @media (max-width: 640px) {
+          .pipeline-card { min-height: 500px; }
+          .header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 12px 16px; }
+          .header-right { align-self: flex-end; }
+          
+          .stats-row { grid-template-columns: repeat(2, 1fr); }
+          .stat { padding: 10px 12px; }
+          .stat:nth-child(2) { border-right: none; }
+          .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 0.5px solid var(--border); }
+          .stat-val { font-size: 16px; }
+          
+          .job-header { padding: 10px 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
+          .job-progress-wrap { margin: 0; width: 100%; height: 1.5px; }
+          .job-pct { align-self: flex-end; margin-top: -18px; }
+          
+          .steps-track { padding: 0 16px; margin-top: 10px; }
+          .steps-row { flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+          .step-node { flex: 0 0 calc(33.33% - 8px); min-width: 0; }
+          .step-connector { display: none; }
+          .step-label { font-size: 7.5px; max-width: none; }
+          .step-icon { width: 28px; height: 28px; font-size: 11px; }
+          
+          .log-feed { padding: 4px 16px 10px; }
+          .log-entry { padding: 6px 10px; font-size: 10.5px; gap: 8px; }
+          .log-main { gap: 6px; }
+          
+          .bottom-bar { padding: 10px 16px; flex-direction: column; gap: 10px; align-items: flex-start; }
+          .bottom-models { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+        }
+
+        @media (max-width: 380px) {
+          .stat-val { font-size: 14px; }
+          .step-node { flex: 0 0 calc(50% - 8px); }
+          .header-title { font-size: 8px; letter-spacing: 0.02em; }
+          .live-badge { padding: 3px 8px; font-size: 9px; }
+        }
       `}</style>
 
       <div className="pipeline-card">

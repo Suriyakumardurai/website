@@ -114,10 +114,11 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>("section[id], div[id]");
-    const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-links a");
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-links a, .mobile-nav-links a");
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -132,6 +133,8 @@ export default function Home() {
     return () => io.disconnect();
   }, []);
 
+  const closeMenu = () => setMobileMenuOpen(false);
+
   return (
     <>
       <ScrollProgress />
@@ -145,7 +148,44 @@ export default function Home() {
           <li><a href="#faq">FAQ</a></li>
         </ul>
         <a href="#cta" className="nav-cta">Book a call</a>
+        
+        <button 
+          className="mobile-toggle" 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <div className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
       </nav>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            className="mobile-menu"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          >
+            <div className="mobile-menu-inner">
+              <ul className="mobile-nav-links">
+                <li><a href="#about" onClick={closeMenu}>About</a></li>
+                <li><a href="#services" onClick={closeMenu}>Services</a></li>
+                <li><a href="#process" onClick={closeMenu}>Process</a></li>
+                <li><a href="#pricing" onClick={closeMenu}>Pricing</a></li>
+                <li><a href="#faq" onClick={closeMenu}>FAQ</a></li>
+              </ul>
+              <div className="mobile-menu-footer">
+                <a href="#cta" className="btn-primary" onClick={closeMenu}>Book a free call</a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* HERO */}
       <section id="hero" ref={heroRef}>
