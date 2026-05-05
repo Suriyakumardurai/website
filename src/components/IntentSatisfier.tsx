@@ -4,31 +4,41 @@ import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 
 /**
- * POGOSTICKING PREVENTION (Intent Rescue)
+ * BEHAVIORAL INTENT SATISFIER
  * 
- * Detects when the user is about to leave early and presents
- * a rescue UI to fulfill their intent before they bounce.
+ * Logic:
+ * 1. Tracks if user has scrolled deep (>60% of page)
+ * 2. Triggers only once (persisted in localStorage)
+ * 3. Triggers when user returns to hero section after exploring
  */
 export function IntentSatisfier() {
   const [showRescue, setShowRescue] = useState(false);
-  const [timeOnPage, setTimeOnPage] = useState(0);
+  const [hasScrolledDeep, setHasScrolledDeep] = useState(false);
+  const [hasBeenShown, setHasBeenShown] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => setTimeOnPage(t => t + 1), 1000);
+    const handleScroll = () => {
+      if (hasBeenShown) return;
 
-    const handleMouseLeave = (e: MouseEvent) => {
-      // Trigger if mouse moves toward top and user has been on page > 15 seconds
-      if (e.clientY < 5 && timeOnPage > 15) {
+      const scrollPos = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const fullHeight = document.documentElement.scrollHeight;
+      
+      // Mark as "Deep Explore" if they hit 60% of the page
+      if (scrollPos > (fullHeight - windowHeight) * 0.6) {
+        setHasScrolledDeep(true);
+      }
+
+      // Trigger if they explored and then returned to Hero (< 300px from top)
+      if (hasScrolledDeep && scrollPos < 300 && !showRescue) {
         setShowRescue(true);
+        setHasBeenShown(true);
       }
     };
 
-    document.addEventListener('mouseleave', handleMouseLeave);
-    return () => {
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      clearInterval(timer);
-    };
-  }, [timeOnPage]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasScrolledDeep, showRescue, hasBeenShown]);
 
   if (!showRescue) return null;
 
@@ -43,23 +53,24 @@ export function IntentSatisfier() {
           <X size={24} />
         </button>
 
-        <h3>Looking for something <span>specific</span>?</h3>
+        <h3>Still <span>searching</span>?</h3>
         <p>
-          Before you go, our lead engineers suggest these high-value starting points:
+          We noticed you've explored the platform from top to bottom and returned to the start. 
+          Instead of scrolling further, tell us exactly what you're looking for:
         </p>
         
         <div className="rescue-links">
           <a href="#services" onClick={() => setShowRescue(false)} className="rescue-link">
             <div className="num">01</div>
-            AI Services & Pricing
+            Detailed Service Catalog
           </a>
           <a href="#about" onClick={() => setShowRescue(false)} className="rescue-link">
             <div className="num">02</div>
-            How our AI automation works
+            Technical Implementation Specs
           </a>
           <a href="#cta" onClick={() => setShowRescue(false)} className="rescue-link">
             <div className="num">03</div>
-            Book a 1:1 strategy call
+            Schedule an Engineer Deep-Dive
           </a>
         </div>
         
@@ -67,7 +78,7 @@ export function IntentSatisfier() {
           onClick={() => setShowRescue(false)}
           className="rescue-dismiss"
         >
-          No thanks, just browsing
+          I've seen enough, thank you
         </button>
       </div>
     </div>
