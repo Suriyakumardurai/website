@@ -17,8 +17,8 @@ export function IntentSatisfier() {
     const timer = setInterval(() => setTimeOnPage(t => t + 1), 1000);
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // Trigger if mouse moves toward top and user has been on page 3-15 seconds
-      if (e.clientY < 10 && timeOnPage < 15 && timeOnPage > 3) {
+      // Trigger if mouse moves toward top and user has been on page > 15 seconds
+      if (e.clientY < 5 && timeOnPage > 15) {
         setShowRescue(true);
       }
     };
@@ -33,37 +33,39 @@ export function IntentSatisfier() {
   if (!showRescue) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-[9999] flex items-center justify-center p-4">
-      <div className="bg-[#111] border border-[#333] rounded-2xl p-8 max-w-md w-full text-center relative">
+    <div className="intent-rescue-overlay">
+      <div className="intent-rescue-card">
         <button 
           onClick={() => setShowRescue(false)}
-          className="absolute top-4 right-4 text-white/40 hover:text-white"
+          className="rescue-close"
+          aria-label="Close"
         >
-          <X size={20} />
+          <X size={24} />
         </button>
 
-        <h3 className="text-2xl font-bold text-white mb-4">
-          Looking for something specific?
-        </h3>
-        <p className="text-white/60 mb-6">
-          Before you go, here are our most requested resources:
+        <h3>Looking for something <span>specific</span>?</h3>
+        <p>
+          Before you go, our lead engineers suggest these high-value starting points:
         </p>
         
-        <div className="space-y-3">
-          <a href="#services" onClick={() => setShowRescue(false)} className="block p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition text-white text-left font-medium">
+        <div className="rescue-links">
+          <a href="#services" onClick={() => setShowRescue(false)} className="rescue-link">
+            <div className="num">01</div>
             AI Services & Pricing
           </a>
-          <a href="#about" onClick={() => setShowRescue(false)} className="block p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition text-white text-left font-medium">
+          <a href="#about" onClick={() => setShowRescue(false)} className="rescue-link">
+            <div className="num">02</div>
             How our AI automation works
           </a>
-          <a href="#cta" onClick={() => setShowRescue(false)} className="block p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition text-white text-left font-medium">
+          <a href="#cta" onClick={() => setShowRescue(false)} className="rescue-link">
+            <div className="num">03</div>
             Book a 1:1 strategy call
           </a>
         </div>
         
         <button
           onClick={() => setShowRescue(false)}
-          className="mt-6 text-sm text-white/40 hover:text-white/80 transition"
+          className="rescue-dismiss"
         >
           No thanks, just browsing
         </button>
