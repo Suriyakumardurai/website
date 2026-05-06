@@ -13,13 +13,14 @@ const stagger = {
   show: { transition: { staggerChildren: 0.1 } },
 };
 
-export function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+export function FadeUp({ children, delay = 0, className = "", style }: { children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
     <motion.div
       ref={ref}
       className={className}
+      style={style}
       initial="hidden"
       animate={inView ? "show" : "hidden"}
       variants={{
@@ -32,31 +33,32 @@ export function FadeUp({ children, delay = 0, className = "" }: { children: Reac
   );
 }
 
-export function StaggerGrid({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function StaggerGrid({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
-    <motion.div ref={ref} className={className} initial="hidden" animate={inView ? "show" : "hidden"} variants={stagger}>
+    <motion.div ref={ref} className={className} style={style} initial="hidden" animate={inView ? "show" : "hidden"} variants={stagger}>
       {children}
     </motion.div>
   );
 }
 
-export function StaggerItem({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function StaggerItem({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
-    <motion.div className={className} variants={fadeUp}>
+    <motion.div className={className} style={style} variants={fadeUp}>
       {children}
     </motion.div>
   );
 }
 
-export function SlideIn({ children, from = "left", className = "" }: { children: React.ReactNode; from?: "left" | "right"; className?: string }) {
+export function SlideIn({ children, from = "left", className = "", style }: { children: React.ReactNode; from?: "left" | "right"; className?: string; style?: React.CSSProperties }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
     <motion.div
       ref={ref}
       className={className}
+      style={style}
       initial={{ opacity: 0, x: from === "left" ? -48 : 48 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as any }}
@@ -66,13 +68,14 @@ export function SlideIn({ children, from = "left", className = "" }: { children:
   );
 }
 
-export function ScaleIn({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function ScaleIn({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
     <motion.div
       ref={ref}
       className={className}
+      style={style}
       initial={{ opacity: 0, scale: 0.92 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as any }}
@@ -126,7 +129,7 @@ export function WordReveal({ text, className = "", delay = 0 }: { text: string; 
   );
 }
 
-export function RevealSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function RevealSection({ children, className = "", style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
 
@@ -134,6 +137,7 @@ export function RevealSection({ children, className = "" }: { children: React.Re
     <motion.div
       ref={ref}
       className={className}
+      style={style}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}

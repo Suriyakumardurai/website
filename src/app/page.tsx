@@ -26,6 +26,8 @@ import { FadeUp, StaggerGrid, StaggerItem, SlideIn, ScaleIn, WordReveal, Typewri
 import LivePipeline from "@/components/sections/LivePipeline";
 import ScrollProgress from "@/components/sections/ScrollProgress";
 import { ProgressiveReveal } from "@/components/ProgressiveReveal";
+import ScopeEstimator from "@/components/sections/ScopeEstimator";
+import { Timer, Layout, Users } from "lucide-react";
 
 const services = [
   { icon: Cpu, title: "Custom LLM Development", desc: "Fine-tuned models, RAG pipelines, and prompt architectures trained on your data. Your AI, your rules." },
@@ -79,61 +81,37 @@ Respectfully,
 
 const plans = [
   {
-    name: "Starter", price: "₹29,000", period: "one-time", desc: "For founders who need a fast, focused AI feature shipped.",
-    features: ["1 AI feature or integration", "Up to 2 weeks delivery", "LLM + API setup", "30-day support"],
-    cta: "Get started", highlight: false,
-    link: getGmailLink("Formal Inquiry: Starter AI Package Implementation", `Dear AutoPlanet Team,
-
-I am writing to express interest in the Starter AI Package (₹29,000) for my business. We require a fast-track AI integration and would like to discuss our requirements with your team.
-
-Specific Feature/Integration Needed:
-[Describe the single AI feature or integration you need]
-
-Company Context:
-[Briefly describe your company and current tech stack]
-
-I look forward to a formal discussion on how this implementation can be expedited.
-
-Respectfully,
-[Your Name]`)
+    name: "Quick Build",
+    icon: Timer,
+    desc: "For founders who need a specific AI feature or integration live in record time.",
+    focus: "Speed & Integration",
+    timeline: "2 weeks avg.",
+    features: ["Single-agent deployment", "Core API integration", "Clean hand-off", "30-day monitoring"],
+    cta: "Scope a feature",
+    highlight: false,
+    link: formalTemplate("Inquiry: Quick Build AI Feature", "single-feature AI build and rapid deployment")
   },
   {
-    name: "Build", price: "₹89,000", period: "one-time", desc: "For teams shipping a complete AI product or agent from scratch.",
-    features: ["Full product or agent build", "4–6 week delivery", "Custom LLM / RAG pipeline", "Auth, billing, dashboard", "60-day support"],
-    cta: "Start a project", highlight: true,
-    link: getGmailLink("Strategic Inquiry: End-to-End AI Product/Agent Development", `Dear AutoPlanet Team,
-
-I am writing to formally express interest in the Build Package (₹89,000). We are looking to develop a complete AI product or autonomous agent from scratch and would value your expertise in engineering the full pipeline.
-
-Product/Agent Vision:
-[Describe the product or agent you wish to build]
-
-Desired Timeline:
-[e.g., 4-6 weeks]
-
-I look forward to a formal consultation to discuss the scope and strategic alignment.
-
-Respectfully,
-[Your Name]`)
+    name: "Full Product",
+    icon: Layout,
+    desc: "End-to-end AI SaaS development from napkin idea to production-ready product.",
+    focus: "Scale & Market Ready",
+    timeline: "4–8 week cycle",
+    features: ["Architecture & UI/UX", "Full AI backend pipeline", "Auth & Stripe integration", "90-day maintenance"],
+    cta: "Scale your product",
+    highlight: true,
+    link: formalTemplate("Strategic Inquiry: End-to-End AI Product Development", "full-stack AI SaaS development and production launch")
   },
   {
-    name: "Retainer", price: "₹45,000", period: "/ month", desc: "Ongoing AI engineering embedded in your team.",
-    features: ["Dedicated AI engineer", "Weekly sprints", "Unlimited iterations", "Priority response", "Monthly strategy calls"],
-    cta: "Book a call", highlight: false,
-    link: getGmailLink("Partnership Inquiry: Ongoing AI Engineering Retainer", `Dear AutoPlanet Team,
-
-I am writing to express interest in the AI Engineering Retainer partnership (₹45,000/month). We require ongoing AI expertise to be embedded within our team for continuous innovation and iteration.
-
-Ongoing Requirements:
-[Describe your team's ongoing AI engineering needs]
-
-Collaboration Model:
-[Mention any specific preferences for weekly sprints or strategy calls]
-
-I look forward to discussing a long-term partnership with AutoPlanet.
-
-Respectfully,
-[Your Name]`)
+    name: "Ongoing Partner",
+    icon: Users,
+    desc: "Dedicated AI engineering embedded in your team for continuous innovation.",
+    focus: "R&D & Optimization",
+    timeline: "Retainer-based",
+    features: ["Dedicated lead engineer", "Weekly sprint reviews", "Infinite iterations", "Priority R&D access"],
+    cta: "Embed a partner",
+    highlight: false,
+    link: formalTemplate("Partnership Inquiry: Continuous AI Engineering Partner", "ongoing strategic partnership and embedded AI engineering")
   },
 ];
 
@@ -575,25 +553,31 @@ export default function Home() {
       {/* PRICING */}
       <ProgressiveReveal>
       <section id="pricing" className="reveal-on-scroll">
-        <div>
-          <div className="section-tag">Pricing</div>
-          <h2 className="h2-reveal">
-            <WordReveal text="Simple pricing. No surprises." />
+        <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+          <div className="section-tag" style={{ justifyContent: "center" }}>Engagement</div>
+          <h2 className="h2-reveal" style={{ justifyContent: "center" }}>
+            <WordReveal text="Scoping your ambition." />
           </h2>
-          <p className="section-sub" style={{ marginBottom: "3rem" }}>
-            Fixed-price projects. No hourly billing. No scope creep invoices. You know exactly what you're getting and what you're paying.
+          <p className="section-sub" style={{ margin: "0 auto" }}>
+            Elite AI engineering isn't a commodity. We don't charge by the hour; we build for outcomes. 
+            Select your path or estimate your scope below.
           </p>
         </div>
 
-        <StaggerGrid className="pricing-grid">
+        <StaggerGrid className="pricing-grid" style={{ marginBottom: "6rem" }}>
           {plans.map((plan) => (
             <StaggerItem key={plan.name}>
-              <div className={`pricing-card ${plan.highlight ? "pricing-card--highlight" : ""}`}>
-                {plan.highlight && <div className="pricing-badge">Most popular</div>}
-                <div className="pricing-name">{plan.name}</div>
-                <div className="pricing-price">{plan.price}<span className="pricing-period">{plan.period}</span></div>
-                <p className="pricing-desc">{plan.desc}</p>
-                <ul className="pricing-features">
+              <div className={`pricing-card ${plan.highlight ? "pricing-card--highlight" : ""}`} style={{ minHeight: "540px" }}>
+                {plan.highlight && <div className="pricing-badge">Elite Choice</div>}
+                <div className="pricing-icon" style={{ color: "#00ffc8", marginBottom: "1.5rem" }}>
+                  <plan.icon size={32} />
+                </div>
+                <div className="pricing-name" style={{ fontSize: "1.5rem" }}>{plan.name}</div>
+                <div style={{ fontSize: "0.8rem", color: "#00ffc8", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1.5rem" }}>
+                  {plan.focus} • {plan.timeline}
+                </div>
+                <p className="pricing-desc" style={{ marginBottom: "2rem" }}>{plan.desc}</p>
+                <ul className="pricing-features" style={{ marginBottom: "2.5rem" }}>
                   {plan.features.map((f) => (
                     <li key={f}>
                       <span className="check"><Check size={14} /></span>
@@ -616,9 +600,57 @@ export default function Home() {
           ))}
         </StaggerGrid>
 
+        <RevealSection>
+          <div className="estimator-section">
+            <div className="estimator-content">
+              <div className="section-tag">Interactive Scoping</div>
+              <h2>Don't guess. Estimate.</h2>
+              <p>
+                Every project has unique variables. Use our interactive scoping tool to get a custom roadmap 
+                estimate based on your specific requirements.
+              </p>
+            </div>
+            <ScopeEstimator />
+          </div>
+        </RevealSection>
+
         <FadeUp>
-          <p className="pricing-note">Need something custom? <a href={formalTemplate("Inquiry: Custom AI Solution Requirements", "customized AI solution tailored to our specific business requirements")} target="_blank">Let's talk</a> — every project is scoped individually.</p>
+          <p className="pricing-note" style={{ marginTop: "5rem" }}>Looking for enterprise-wide transformation? <a href={formalTemplate("Enterprise Inquiry: AI Transformation & Architecture", "comprehensive AI architecture and enterprise-wide transformation")} target="_blank">Consult with our Lead Architect</a>.</p>
         </FadeUp>
+
+        <style jsx>{`
+          .estimator-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            padding: 5rem;
+            margin-top: 4rem;
+          }
+
+          .estimator-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+          }
+
+          .estimator-content p {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+            font-size: 1.1rem;
+          }
+
+          @media (max-width: 1024px) {
+            .estimator-section {
+              grid-template-columns: 1fr;
+              padding: 3rem 2rem;
+              gap: 3rem;
+              text-align: center;
+            }
+          }
+        `}</style>
       </section>
       </ProgressiveReveal>
 
