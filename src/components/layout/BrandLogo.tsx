@@ -8,7 +8,7 @@ const Globe = dynamic(() => import("../three/Globe"), { ssr: false });
 
 function AnimatedChar({ char, scrollY, range, output, maxBlur }: { char: string, scrollY: any, range: number[], output: number[], maxBlur: number }) {
   const opacity = useTransform(scrollY, range, output);
-  
+
   // Feathering effect (blur)
   // We want blur when opacity is 0, and no blur when opacity is 1
   const blurRange = output.map(v => v === 1 ? 0 : maxBlur);
@@ -24,7 +24,7 @@ function AnimatedChar({ char, scrollY, range, output, maxBlur }: { char: string,
 
 export default function BrandLogo() {
   const { scrollY } = useScroll();
-  
+
   const textRange = [0, 1900];
 
   const name1 = "AUTOPLANET";
@@ -38,11 +38,11 @@ export default function BrandLogo() {
 
   // Logo transform
   const logoX = useTransform(scrollY, [0, 1200], [0, 82]);
-  
+
   // Reveal text transforms
   const hiddenTextScale = useTransform(scrollY, [200, 1040], [0.95, 1]);
   const hiddenTextClip = useTransform(scrollY, [300, 1140], ["inset(0% 100% 0% 0%)", "inset(0% 0% 0% 0%)"]);
-  
+
   const rawRotationSpeed = useTransform(scrollY, [0, 1200], [1, 6], { clamp: false });
   const rotationSpeed = useSpring(rawRotationSpeed, { stiffness: 50, damping: 20 });
 
@@ -69,12 +69,12 @@ export default function BrandLogo() {
       }
 
       return (
-        <AnimatedChar 
-          key={`${type}-${baseIndex}-${i}`} 
-          char={char} 
-          scrollY={scrollY} 
-          range={range} 
-          output={output} 
+        <AnimatedChar
+          key={`${type}-${baseIndex}-${i}`}
+          char={char}
+          scrollY={scrollY}
+          range={range}
+          output={output}
           maxBlur={maxBlur}
         />
       );
@@ -84,20 +84,20 @@ export default function BrandLogo() {
   return (
     <a href="#" className="brand-logo">
       <div className="brand-visual">
-        <motion.div 
+        <motion.div
           className="globe-container"
-          style={{ 
-            translateX: globeX, 
+          style={{
+            translateX: globeX,
             translateY: globeY,
-            scale: globeScale 
+            scale: globeScale
           }}
         >
           <Globe speed={rotationSpeed} />
         </motion.div>
-        
+
         <motion.div
           className="brand-reveal-text"
-          style={{ 
+          style={{
             scale: hiddenTextScale,
             clipPath: hiddenTextClip,
             position: "absolute",
@@ -125,9 +125,9 @@ export default function BrandLogo() {
           style={{ x: logoX, zIndex: 2, position: 'relative' }}
           className="brand-image"
         >
-          <Image 
-            src="/logo.png" 
-            alt="AutoPlanet Corporation Logo" 
+          <Image
+            src="/logo.png"
+            alt="AutoPlanet Corporation Logo"
             fill
             sizes="111px"
             style={{ objectFit: 'contain' }}
@@ -135,7 +135,7 @@ export default function BrandLogo() {
           />
         </motion.div>
       </div>
-      <motion.div 
+      <motion.div
         className="brand-text"
         style={{ y: 4 }}
       >
@@ -147,7 +147,7 @@ export default function BrandLogo() {
             {renderStaggered(name2, 0, 11, 'logo')}
           </div>
         </div>
-        <motion.div 
+        <motion.div
           className="brand-tagline-wrap"
           style={{ opacity: useTransform(scrollY, [400, 1100], [1, 0]) }}
         >

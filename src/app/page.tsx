@@ -569,11 +569,11 @@ export default function Home() {
             <StaggerItem key={plan.name}>
               <div className={`pricing-card ${plan.highlight ? "pricing-card--highlight" : ""}`} style={{ minHeight: "540px" }}>
                 {plan.highlight && <div className="pricing-badge">Elite Choice</div>}
-                <div className="pricing-icon" style={{ color: "#00ffc8", marginBottom: "1.5rem" }}>
+                <div className="pricing-icon" style={{ color: "#c8a96e", marginBottom: "1.5rem" }}>
                   <plan.icon size={32} />
                 </div>
                 <div className="pricing-name" style={{ fontSize: "1.5rem" }}>{plan.name}</div>
-                <div style={{ fontSize: "0.8rem", color: "#00ffc8", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1.5rem" }}>
+                <div style={{ fontSize: "0.8rem", color: "#c8a96e", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "1.5rem" }}>
                   {plan.focus} • {plan.timeline}
                 </div>
                 <p className="pricing-desc" style={{ marginBottom: "2rem" }}>{plan.desc}</p>

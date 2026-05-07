@@ -179,7 +179,7 @@ Best regards,
         }
 
         .result-card {
-          border-color: rgba(0, 255, 200, 0.2);
+          border-color: rgba(200, 169, 110, 0.2);
         }
 
         .result-glow {
@@ -188,7 +188,7 @@ Best regards,
           right: -50px;
           width: 200px;
           height: 200px;
-          background: radial-gradient(circle, rgba(0, 255, 200, 0.15) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(200, 169, 110, 0.15) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -214,8 +214,8 @@ Best regards,
 
         .progress-fill {
           height: 100%;
-          background: #00ffc8;
-          box-shadow: 0 0 10px rgba(0, 255, 200, 0.5);
+          background: #c8a96e;
+          box-shadow: 0 0 10px rgba(200, 169, 110, 0.5);
         }
 
         .question-title {
@@ -253,8 +253,8 @@ Best regards,
         }
 
         .option-btn.selected {
-          border-color: #00ffc8;
-          background: rgba(0, 255, 200, 0.05);
+          border-color: #c8a96e;
+          background: rgba(200, 169, 110, 0.05);
         }
 
         .option-icon {
@@ -270,8 +270,8 @@ Best regards,
         }
 
         .option-btn:hover .option-icon, .option-btn.selected .option-icon {
-          color: #00ffc8;
-          background: rgba(0, 255, 200, 0.1);
+          color: #c8a96e;
+          background: rgba(200, 169, 110, 0.1);
         }
 
         .option-label {
@@ -303,7 +303,7 @@ Best regards,
 
         .result-tag {
           font-size: 0.75rem;
-          color: #00ffc8;
+          color: #c8a96e;
           text-transform: uppercase;
           letter-spacing: 0.1em;
           margin-bottom: 12px;

@@ -15,7 +15,7 @@ export function ResourceOrchestrator({ route }: { route: string }) {
   // Route-specific prefetches
   const routePrefetch: Record<string, React.ReactNode[]> = {
     '/': [
-      <link key="hero-img" rel="preload" href="/logo.png" as="image" />,
+      <link key="hero-img" rel="preload" href="/favicon.svg" as="image" />,
     ],
   };
 

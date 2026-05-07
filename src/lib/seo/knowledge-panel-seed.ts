@@ -8,8 +8,8 @@ export function generateKnowledgePanelSeed() {
     logo: {
       '@type': 'ImageObject',
       '@id': 'https://autoplanetcorp.com/#logo',
-      url: 'https://autoplanetcorp.com/logo.png',
-      contentUrl: 'https://autoplanetcorp.com/logo.png',
+      url: 'https://autoplanetcorp.com/favicon.svg',
+      contentUrl: 'https://autoplanetcorp.com/favicon.svg',
       width: 512,
       height: 512,
       caption: 'AutoPlanet Corporation Logo',
