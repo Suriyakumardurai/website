@@ -37,7 +37,13 @@ export const metadata: Metadata = {
   description: emotionalMeta['/'].description,
   keywords: ["Enterprise AI Solutions", "Autonomous Workflows", "AI Automation India", "Corporate AI SaaS", "AutoPlanet Corporation", "Digital Transformation"],
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: '/favicon.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/favicon.png', sizes: '96x96', type: 'image/png' },
+    ],
   },
   alternates: {
     canonical: "https://autoplanetcorp.com",
@@ -54,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "AutoPlanet Corporation",
     images: [
       {
-        url: "/favicon.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "AutoPlanet Corporation - AI-Powered Automation for Your Business",
@@ -69,7 +75,7 @@ export const metadata: Metadata = {
     creator: "@ceoofautoplanet",
     title: "AutoPlanet Corporation",
     description: "AI-Powered Automation & Solutions for Your Business",
-    images: ["/favicon.svg"],
+    images: ["/og-image.png"],
   },
   other: {
     'geo.region': 'IN-TN',
