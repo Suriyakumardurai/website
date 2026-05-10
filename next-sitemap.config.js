@@ -2,8 +2,8 @@
 module.exports = {
   siteUrl: 'https://autoplanetcorp.com',
   generateRobotsTxt: true,
-  changefreq: 'weekly',
-  priority: 0.7,
+  changefreq: 'daily',
+  priority: 1.0,
   sitemapSize: 5000,
   exclude: ['/api/*'],
   robotsTxtOptions: {

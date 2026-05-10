@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | AutoPlanet Corporation",
   },
   description: emotionalMeta['/'].description,
-  keywords: ["Enterprise AI Solutions", "Autonomous Workflows", "AI Automation India", "Corporate AI SaaS", "AutoPlanet Corporation", "Digital Transformation"],
+  keywords: ["Enterprise AI Solutions", "Autonomous Workflows", "AI Automation India", "Corporate AI SaaS", "AutoPlanet Corporation", "Digital Transformation", "AI Development", "Web Development", "Custom LLM"],
   icons: {
     icon: [
       { url: '/favicon.png', sizes: '96x96', type: 'image/png' },
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "AutoPlanet Corporation",
-    description: "AI-Powered Automation & Solutions for Your Business",
+    title: "AutoPlanet Corporation - AI That Replaced 83% of Manual Work",
+    description: "Enterprise AI automation trusted by teams who refused to stay slow. Custom LLMs, AI SaaS, workflow engines — built in Villupuram, deployed globally. See what 10x feels like.",
     url: "https://autoplanetcorp.com",
     siteName: "AutoPlanet Corporation",
     images: [

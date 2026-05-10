@@ -25,4 +25,28 @@ export const emotionalMeta: Record<string, { title: string; description: string 
       'No fluff. No "10 tips" listicles. Raw engineering breakdowns of how we ' +
       'build AI systems that actually work. Updated weekly.',
   },
+  '/services/web-development': {
+    title: 'Web Development Services | AutoPlanet - Expert Web Design & Development',
+    description: 'Custom websites and web applications built with cutting-edge technologies for blazing-fast performance and seamless user experiences.',
+  },
+  '/services/ai-solutions': {
+    title: 'AI Solutions | AutoPlanet - Intelligent Automation & LLMs',
+    description: 'Intelligent automation and AI-powered tools that give your business a competitive edge in the rapidly evolving market.',
+  },
+  '/services/mobile-apps': {
+    title: 'Mobile App Development | AutoPlanet - Native & Cross-Platform Apps',
+    description: 'High-performance mobile applications built for iOS and Android with cutting-edge technologies for optimal user experiences.',
+  },
+  '/services/ui-ux-design': {
+    title: 'UI/UX Design Services | AutoPlanet - User-Centered Design',
+    description: 'Beautiful, intuitive user interfaces designed to maximize engagement and conversion through user-centered design principles.',
+  },
+  '/services/cloud-devops': {
+    title: 'Cloud & DevOps Services | AutoPlanet - Scalable Infrastructure',
+    description: 'Scalable cloud infrastructure and DevOps solutions for high-performance, reliable applications.',
+  },
+  '/services/performance': {
+    title: 'Performance Optimization | AutoPlanet - Blazing Fast Applications',
+    description: 'Optimize your applications for maximum speed and efficiency with our performance optimization services.',
+  },
 };
