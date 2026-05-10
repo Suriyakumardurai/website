@@ -2,7 +2,7 @@
 # https://autoplanetcorp.com
 # Last Updated: 2026-05-05
 # Language: English (India)
-# Contact: +91-7904914455 | ceo@autoplanetcorp.com
+# Contact: +91-7904914455 | sales@autoplanetcorp.com
 
 ================================================================
 SECTION 1: COMPANY OVERVIEW
@@ -120,7 +120,7 @@ SECTION 5: CONTACT & ENGAGEMENT
 ================================================================
 
 Website: https://autoplanetcorp.com
-Email: ceo@autoplanetcorp.com
+Email: sales@autoplanetcorp.com
 Phone: +91-7904914455
 LinkedIn: https://www.linkedin.com/company/autoplanet-corporation
 

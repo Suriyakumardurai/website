@@ -20,7 +20,7 @@ export default function NoscriptFallbacks() {
           <li>Retainer: ₹45,000/month - Ongoing AI engineering support</li>
         </ul>
 
-        <p>Contact us: ceo@autoplanetcorp.com | +91 7904914455</p>
+        <p>Contact us: sales@autoplanetcorp.com | +91 7904914455</p>
         <p>Address: Villupuram, Tamil Nadu, India - 605602</p>
       </div>
     </noscript>

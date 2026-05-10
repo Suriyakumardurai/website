@@ -151,7 +151,7 @@ export default function LLMCostCalculator() {
 
             <Magnetic>
               <a 
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=ceo@autoplanetcorp.com&su=Custom LLM Architecture Review Request&body=Hi Suriya,%0D%0A%0D%0AWe used the LLM Cost Calculator and would like a formal architecture review for our project.%0D%0A%0D%0AProject Details:%0D%0A- Model: "
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@autoplanetcorp.com&su=Custom LLM Architecture Review Request&body=Hi Suriya,%0D%0A%0D%0AWe used the LLM Cost Calculator and would like a formal architecture review for our project.%0D%0A%0D%0AProject Details:%0D%0A- Model: "
                 target="_blank" 
                 className="btn-primary" 
                 style={{ width: '100%', justifyContent: 'center', padding: '18px' }}

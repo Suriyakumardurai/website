@@ -56,7 +56,7 @@ export default function ScopeEstimator() {
   };
 
   const getGmailLink = () => {
-    const recipient = "ceo@autoplanetcorp.com";
+    const recipient = "sales@autoplanetcorp.com";
     const subject = `Scope Estimate Request: ${selections.type} (${selections.timeline})`;
     const body = `Dear AutoPlanet Team,
 

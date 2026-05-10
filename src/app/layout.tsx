@@ -162,7 +162,7 @@ const localBusinessSchema = {
   "image": "https://autoplanetcorp.com/favicon.svg",
   "url": "https://autoplanetcorp.com",
   "telephone": "+91-7904914455",
-  "email": "ceo@autoplanetcorp.com",
+  "email": "sales@autoplanetcorp.com",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
@@ -188,7 +188,7 @@ const localBusinessSchema = {
     "@type": "ContactPoint",
     "telephone": "+91-7904914455",
     "contactType": "CEO / Customer Service",
-    "email": "ceo@autoplanetcorp.com",
+    "email": "sales@autoplanetcorp.com",
     "areaServed": "IN",
     "availableLanguage": ["English", "Tamil"]
   },

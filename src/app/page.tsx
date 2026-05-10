@@ -53,7 +53,7 @@ const faqs = [
 ];
 
 const getGmailLink = (subject: string, body: string) => {
-  const recipient = "ceo@autoplanetcorp.com";
+  const recipient = "sales@autoplanetcorp.com";
   return `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };
 
@@ -719,11 +719,11 @@ export default function Home() {
             </Magnetic>
             <Magnetic>
               <a 
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=ceo@autoplanetcorp.com" 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@autoplanetcorp.com" 
                 target="_blank"
                 className="btn-ghost"
               >
-                <Mail size={18} /> ceo@autoplanetcorp.com
+                <Mail size={18} /> sales@autoplanetcorp.com
               </a>
             </Magnetic>
           </div>
