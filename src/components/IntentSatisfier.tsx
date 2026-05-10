@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 /**
  * BEHAVIORAL INTENT SATISFIER
@@ -10,8 +11,10 @@ import { X } from 'lucide-react';
  * 1. Tracks if user has scrolled deep (>60% of page)
  * 2. Triggers only once (persisted in localStorage)
  * 3. Triggers when user returns to hero section after exploring
+ * 4. Only active on the index/home page
  */
 export function IntentSatisfier() {
+  const pathname = usePathname();
   const [showRescue, setShowRescue] = useState(false);
   const [hasScrolledDeep, setHasScrolledDeep] = useState(false);
   const [hasBeenShown, setHasBeenShown] = useState(false);
@@ -40,6 +43,7 @@ export function IntentSatisfier() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasScrolledDeep, showRescue, hasBeenShown]);
 
+  if (pathname !== '/') return null;
   if (!showRescue) return null;
 
   return (

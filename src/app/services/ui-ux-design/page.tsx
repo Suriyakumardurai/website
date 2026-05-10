@@ -1,27 +1,26 @@
 import type { Metadata } from "next";
 import ServiceTemplate from "@/components/layout/ServiceTemplate";
+import { UserCheck, Gem, LayoutGrid, PlayCircle, Proportions, Accessibility, Smartphone, Brain, Laptop } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "UI/UX Design Services | AutoPlanet",
   description: "Human-centered design that transforms complex ideas into intuitive, beautiful interfaces that users love to interact with.",
-  keywords: ["ui/ux design", "user interface", "user experience", "design systems", "prototyping"],
   openGraph: {
-    title: "UI/UX Design Services - AutoPlanet",
+    title: "UI/UX Design Services | AutoPlanet",
     description: "Premium digital product design for web and mobile.",
     type: "website",
     url: "https://autoplanetcorp.com/services/ui-ux-design",
     siteName: "AutoPlanet Corporation",
-    locale: "en_US",
   },
 };
 
 const features = [
-  { icon: "🎯", title: "User-Centric Approach", description: "Design decisions driven by deep user research, behavioral psychology, and rigorous usability testing." },
-  { icon: "✨", title: "Premium Aesthetics", description: "Cinematic, high-end visual design that elevates your brand identity and commands immediate trust." },
-  { icon: "🧩", title: "Design Systems", description: "Comprehensive, scalable component libraries that ensure consistency across all your digital touchpoints." },
-  { icon: "🎬", title: "Micro-Interactions", description: "Delightful animations and fluid transitions that bring your interface to life and guide user focus." },
-  { icon: "📱", title: "Responsive Layouts", description: "Adaptive designs that maintain their beauty and functionality across every conceivable screen size." },
-  { icon: "♿", title: "Accessibility (a11y)", description: "Inclusive design practices ensuring your product is usable and enjoyable for everyone." },
+  { icon: <UserCheck size={22} strokeWidth={1.5} />, title: "User-Centric Approach", description: "Design decisions driven by deep user research, behavioral psychology, and rigorous usability testing." },
+  { icon: <Gem size={22} strokeWidth={1.5} />, title: "Premium Aesthetics", description: "Cinematic, high-end visual design that elevates your brand identity and commands immediate trust." },
+  { icon: <LayoutGrid size={22} strokeWidth={1.5} />, title: "Design Systems", description: "Comprehensive, scalable component libraries that ensure consistency across all your digital touchpoints." },
+  { icon: <PlayCircle size={22} strokeWidth={1.5} />, title: "Micro-Interactions", description: "Delightful animations and fluid transitions that bring your interface to life and guide user focus." },
+  { icon: <Proportions size={22} strokeWidth={1.5} />, title: "Responsive Layouts", description: "Adaptive designs that maintain their beauty and functionality across every conceivable screen size." },
+  { icon: <Accessibility size={22} strokeWidth={1.5} />, title: "Accessibility (a11y)", description: "Inclusive design practices ensuring your product is usable and enjoyable for everyone." },
 ];
 
 const process = [
@@ -32,13 +31,29 @@ const process = [
   { step: "05", title: "Prototyping & Testing", description: "Building interactive prototypes to validate design decisions with real users before writing a single line of code." },
 ];
 
+const stats = [
+  { value: "2wk", label: "First prototype delivery" },
+  { value: "40%", label: "Avg. conversion lift" },
+  { value: "94%", label: "User satisfaction score" },
+  { value: "WCAG", label: "AA compliance standard" },
+];
+
+const relatedServices = [
+  { title: "Web Development", href: "/services/web-development", icon: <Laptop size={16} strokeWidth={1.5} /> },
+  { title: "Mobile Apps", href: "/services/mobile-apps", icon: <Smartphone size={16} strokeWidth={1.5} /> },
+  { title: "AI Solutions", href: "/services/ai-solutions", icon: <Brain size={16} strokeWidth={1.5} /> },
+];
+
 export default function UIUXDesignPage() {
   return (
-    <ServiceTemplate 
+    <ServiceTemplate
       title="UI/UX Design"
+      tagline="Beautiful is not enough. Every pixel should reduce friction, build trust, and nudge the user one step closer to converting."
       description="Crafting cinematic, intuitive, and conversion-optimized digital experiences that turn casual visitors into loyal advocates for your brand."
       features={features}
       process={process}
+      stats={stats}
+      relatedServices={relatedServices}
     />
   );
 }
