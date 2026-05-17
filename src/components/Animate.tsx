@@ -3,9 +3,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
+const customEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as any } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: customEase } },
 };
 
 const stagger = {
@@ -25,7 +27,7 @@ export function FadeUp({ children, delay = 0, className = "", style }: { childre
       animate={inView ? "show" : "hidden"}
       variants={{
         hidden: { opacity: 0, y: 32 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] as any } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: customEase } },
       }}
     >
       {children}
@@ -61,7 +63,7 @@ export function SlideIn({ children, from = "left", className = "", style }: { ch
       style={style}
       initial={{ opacity: 0, x: from === "left" ? -48 : 48 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as any }}
+      transition={{ duration: 0.8, ease: customEase }}
     >
       {children}
     </motion.div>
@@ -78,7 +80,7 @@ export function ScaleIn({ children, className = "", style }: { children: React.R
       style={style}
       initial={{ opacity: 0, scale: 0.92 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as any }}
+      transition={{ duration: 0.7, ease: customEase }}
     >
       {children}
     </motion.div>
@@ -94,7 +96,7 @@ export function LineReveal({ text, className = "" }: { text: string; className?:
         className={className}
         initial={{ y: "100%" }}
         animate={inView ? { y: 0 } : {}}
-        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] as any }}
+        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
       >
         {text}
       </motion.div>
@@ -140,7 +142,7 @@ export function RevealSection({ children, className = "", style }: { children: R
       style={style}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as any }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
     >
       {children}
     </motion.div>

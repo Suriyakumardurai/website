@@ -49,4 +49,32 @@ export const emotionalMeta: Record<string, { title: string; description: string 
     title: 'Performance Optimization | AutoPlanet - Blazing Fast Applications',
     description: 'Optimize your applications for maximum speed and efficiency with our performance optimization services.',
   },
+  '/about': {
+    title: 'About AutoPlanet Corporation | AI-Native Company Built in India',
+    description: 'AutoPlanet Corporation is an AI-native automation company founded by Suriya in Villupuram, Tamil Nadu. Custom LLMs, AI SaaS, workflow engines — built in India, deployed globally.',
+  },
+  '/pricing': {
+    title: 'AI Development Pricing | Fixed-Price, No Hourly Billing | AutoPlanet',
+    description: 'Transparent AI development pricing. Quick Build from 2 weeks, Full Product in 4-8 weeks, or Ongoing Partner retainers. Fixed pricing — know your cost before we start.',
+  },
+  '/contact': {
+    title: 'Contact AutoPlanet Corporation | Book a Free AI Consultation',
+    description: 'Book a free 30-minute AI consultation with AutoPlanet. Email sales@autoplanetcorp.com or call +91-7904914455. We respond within 24 hours.',
+  },
+  '/faq': {
+    title: 'FAQ | AutoPlanet Corporation - AI Development Questions Answered',
+    description: 'Get answers to common questions about AI development timelines, pricing, models, support, and how AutoPlanet builds production AI systems.',
+  },
+  '/case-studies': {
+    title: 'AI Case Studies | Real Results from AutoPlanet Corporation',
+    description: 'See how businesses eliminated 83% of manual work with AutoPlanet AI automation. Real case studies with measurable ROI from custom LLMs, AI agents, and workflow automation.',
+  },
+  '/process': {
+    title: 'Our AI Development Process | Discovery to Deployment in Weeks',
+    description: 'AutoPlanet\'s proven 4-step process: Free 30-min call → Scope in 48hrs → Build sprints with Friday demos → Deploy with full ownership. Ships in weeks, not months.',
+  },
+  '/tools/llm-cost-calculator': {
+    title: 'LLM Cost Calculator | Compare AI Model Pricing | AutoPlanet',
+    description: 'Free LLM cost calculator. Compare GPT-4o, Claude 3.5, Gemini, Llama 3 pricing for your use case. Estimate monthly AI infrastructure costs instantly.',
+  },
 };

@@ -91,7 +91,8 @@ export const metadata: Metadata = {
   category: 'Technology',
   classification: 'Business',
   verification: {
-    google: 'your-google-verification-code', // User should replace this
+    // Add your Google Search Console verification code here after deploying
+    // google: 'actual-verification-code',
   },
   robots: {
     index: true,

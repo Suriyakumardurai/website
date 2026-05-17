@@ -2,10 +2,30 @@
 module.exports = {
   siteUrl: 'https://autoplanetcorp.com',
   generateRobotsTxt: true,
-  changefreq: 'daily',
-  priority: 1.0,
+  changefreq: 'weekly',
+  priority: 0.7,
   sitemapSize: 5000,
-  exclude: ['/api/*'],
+  exclude: ['/api/*', '/icon.png', '/manifest.webmanifest'],
+  additionalPaths: async () => {
+    return [
+      { loc: '/', changefreq: 'daily', priority: 1.0, lastmod: new Date().toISOString() },
+      { loc: '/about', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/services', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
+      { loc: '/pricing', changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString() },
+      { loc: '/faq', changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() },
+      { loc: '/contact', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/blog', changefreq: 'daily', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/tools/llm-cost-calculator', changefreq: 'monthly', priority: 0.6, lastmod: new Date().toISOString() },
+      { loc: '/case-studies', changefreq: 'weekly', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/process', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/services/ai-solutions', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/services/web-development', changefreq: 'monthly', priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: '/services/mobile-apps', changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() },
+      { loc: '/services/ui-ux-design', changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() },
+      { loc: '/services/cloud-devops', changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() },
+      { loc: '/services/performance', changefreq: 'monthly', priority: 0.7, lastmod: new Date().toISOString() },
+    ];
+  },
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },

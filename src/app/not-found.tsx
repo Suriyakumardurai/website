@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
+import Link from 'next/link';
 import BrandLogo from "@/components/layout/BrandLogo";
 import { WordReveal, Magnetic } from "@/components/Animate";
 
@@ -11,13 +12,15 @@ export default function NotFound() {
       <nav>
         <BrandLogo />
         <ul className="nav-links">
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#services">Services</a></li>
-          <li><a href="/#pricing">Pricing</a></li>
-          <li><a href="/#process">Process</a></li>
-          <li><a href="/#faq">FAQ</a></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/services">Services</Link></li>
+          <li><Link href="/pricing">Pricing</Link></li>
+          <li><Link href="/process">Process</Link></li>
+          <li><Link href="/blog">Blog</Link></li>
+          <li><Link href="/faq">FAQ</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
         </ul>
-        <a href="/#cta" className="nav-cta">Book a call</a>
+        <Link href="/contact" className="nav-cta">Book a call</Link>
       </nav>
 
       <section id="hero" style={{ 
@@ -70,10 +73,10 @@ export default function NotFound() {
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             <Magnetic>
-              <a href="/" className="btn-primary">Back to Base <Home size={18} /></a>
+              <Link href="/" className="btn-primary">Back to Base <Home size={18} /></Link>
             </Magnetic>
             <Magnetic>
-              <a href="/#services" className="btn-ghost">Explore Services</a>
+              <Link href="/services" className="btn-ghost">Explore Services</Link>
             </Magnetic>
           </motion.div>
         </div>

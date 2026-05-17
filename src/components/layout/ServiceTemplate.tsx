@@ -101,10 +101,10 @@ export default function ServiceTemplate({
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
                 style={{ display: 'flex', gap: 12 }}
               >
-                <Link href="/#contact" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px' }}>
+                <Link href="/contact" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px' }}>
                   Start Your Project <ArrowRight size={15} />
                 </Link>
-                <Link href="/#services" className="btn-ghost" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 24px' }}>
+                <Link href="/services" className="btn-ghost" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 24px' }}>
                   All Services
                 </Link>
               </motion.div>
@@ -222,7 +222,7 @@ export default function ServiceTemplate({
             <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.8, marginBottom: 32, fontWeight: 300 }}>
               A proven, transparent workflow built for speed without sacrificing quality.
             </p>
-            <Link href="/#contact" style={{
+            <Link href="/contact" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none',
               color: 'var(--accent)', fontSize: 13, fontWeight: 400,
               letterSpacing: '0.04em', borderBottom: '0.5px solid rgba(200,169,110,0.4)', paddingBottom: 2,
@@ -329,10 +329,10 @@ export default function ServiceTemplate({
             </p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexShrink: 0, flexWrap: 'wrap', position: 'relative', zIndex: 1 }}>
-            <Link href="/#contact" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', fontSize: '0.9rem' }}>
+            <Link href="/contact" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 32px', fontSize: '0.9rem' }}>
               Get in Touch <ArrowRight size={15} />
             </Link>
-            <Link href="/#services" className="btn-ghost" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 28px', fontSize: '0.9rem' }}>
+            <Link href="/services" className="btn-ghost" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '14px 28px', fontSize: '0.9rem' }}>
               See All Services
             </Link>
           </div>

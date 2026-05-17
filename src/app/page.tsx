@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { 
   Cpu, 
   Zap, 
@@ -189,11 +190,14 @@ export default function Home() {
       <nav>
         <BrandLogo />
         <ul className="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/services">Services</Link></li>
+          <li><Link href="/process">Process</Link></li>
+          <li><Link href="/case-studies">Case Studies</Link></li>
+          <li><Link href="/pricing">Pricing</Link></li>
+          <li><Link href="/blog">Blog</Link></li>
+          <li><Link href="/faq">FAQ</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
         </ul>
         <a 
           href={formalTemplate("Inquiry: Exploring AI Solutions & Products", "strategic partnership and exploring your AI products")} 
@@ -227,11 +231,14 @@ export default function Home() {
           >
             <div className="mobile-menu-inner">
               <ul className="mobile-nav-links">
-                <li><a href="#about" onClick={closeMenu}>About</a></li>
-                <li><a href="#services" onClick={closeMenu}>Services</a></li>
-                <li><a href="#process" onClick={closeMenu}>Process</a></li>
-                <li><a href="#pricing" onClick={closeMenu}>Pricing</a></li>
-                <li><a href="#faq" onClick={closeMenu}>FAQ</a></li>
+                <li><Link href="/about" onClick={closeMenu}>About</Link></li>
+                <li><Link href="/services" onClick={closeMenu}>Services</Link></li>
+                <li><Link href="/process" onClick={closeMenu}>Process</Link></li>
+                <li><Link href="/case-studies" onClick={closeMenu}>Case Studies</Link></li>
+                <li><Link href="/pricing" onClick={closeMenu}>Pricing</Link></li>
+                <li><Link href="/blog" onClick={closeMenu}>Blog</Link></li>
+                <li><Link href="/faq" onClick={closeMenu}>FAQ</Link></li>
+                <li><Link href="/contact" onClick={closeMenu}>Contact</Link></li>
               </ul>
               <div className="mobile-menu-footer">
                 <a 
@@ -601,11 +608,21 @@ export default function Home() {
         </StaggerGrid>
 
         <RevealSection>
-          <div className="estimator-section">
-            <div className="estimator-content">
+          <div className="estimator-section-grid" style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1.2fr",
+            gap: "5rem",
+            alignItems: "center",
+            background: "rgba(255, 255, 255, 0.02)",
+            border: "1px solid rgba(255, 255, 255, 0.05)",
+            borderRadius: "32px",
+            padding: "5rem",
+            marginTop: "4rem",
+          }}>
+            <div>
               <div className="section-tag">Interactive Scoping</div>
-              <h2>Don't guess. Estimate.</h2>
-              <p>
+              <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>Don&apos;t guess. Estimate.</h2>
+              <p style={{ color: "rgba(255, 255, 255, 0.5)", lineHeight: 1.6, fontSize: "1.1rem" }}>
                 Every project has unique variables. Use our interactive scoping tool to get a custom roadmap 
                 estimate based on your specific requirements.
               </p>
@@ -617,40 +634,6 @@ export default function Home() {
         <FadeUp>
           <p className="pricing-note" style={{ marginTop: "5rem" }}>Looking for enterprise-wide transformation? <a href={formalTemplate("Enterprise Inquiry: AI Transformation & Architecture", "comprehensive AI architecture and enterprise-wide transformation")} target="_blank">Consult with our Lead Architect</a>.</p>
         </FadeUp>
-
-        <style jsx>{`
-          .estimator-section {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 32px;
-            padding: 5rem;
-            margin-top: 4rem;
-          }
-
-          .estimator-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-          }
-
-          .estimator-content p {
-            color: rgba(255, 255, 255, 0.5);
-            line-height: 1.6;
-            font-size: 1.1rem;
-          }
-
-          @media (max-width: 1024px) {
-            .estimator-section {
-              grid-template-columns: 1fr;
-              padding: 3rem 2rem;
-              gap: 3rem;
-              text-align: center;
-            }
-          }
-        `}</style>
       </section>
       </ProgressiveReveal>
 
@@ -681,7 +664,7 @@ export default function Home() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as any }}
+                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
                       style={{ overflow: "hidden" }}
                     >
                       {item.a}
@@ -730,14 +713,61 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      <footer>
-        <div className="footer-copy">© 2026 AutoPlanet. All rights reserved.</div>
-        <ul className="footer-links">
-          <li><a href="https://x.com/ceoofautoplanet" target="_blank" rel="noopener noreferrer me">Twitter</a></li>
-          <li><a href="https://www.linkedin.com/company/autoplanet-corporation" target="_blank" rel="noopener noreferrer me">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/autoplanet.corp" target="_blank" rel="noopener noreferrer me">Instagram</a></li>
-          <li><a href={formalTemplate("General Business Inquiry", "general inquiry regarding AutoPlanet services")} target="_blank">Contact</a></li>
-        </ul>
+      <footer style={{ borderTop: "0.5px solid rgba(200,169,110,0.15)", padding: "80px 40px 40px", maxWidth: "1280px", margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "3rem", marginBottom: "4rem" }} className="footer-grid">
+          <div>
+            <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "var(--white)", marginBottom: "1rem" }}>AutoPlanet</div>
+            <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, maxWidth: "280px", marginBottom: "1.5rem" }}>
+              AI-native automation company. We build custom LLMs, AI SaaS products, and workflow engines that actually ship.
+            </p>
+            <div style={{ display: "flex", gap: "0.75rem" }}>
+              {[
+                { label: "𝕏", href: "https://x.com/ceoofautoplanet" },
+                { label: "in", href: "https://www.linkedin.com/company/autoplanet-corporation" },
+                { label: "IG", href: "https://www.instagram.com/autoplanet.corp" },
+              ].map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer me" style={{ width: "36px", height: "36px", borderRadius: "10px", border: "0.5px solid rgba(200,169,110,0.2)", background: "rgba(200,169,110,0.05)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", fontSize: "0.7rem", fontWeight: 700, textDecoration: "none" }}>{s.label}</a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1.25rem", fontWeight: 500 }}>Services</div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <li><Link href="/services/ai-solutions" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>AI Solutions</Link></li>
+              <li><Link href="/services/web-development" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Web Development</Link></li>
+              <li><Link href="/services/mobile-apps" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Mobile Apps</Link></li>
+              <li><Link href="/services/ui-ux-design" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>UI/UX Design</Link></li>
+              <li><Link href="/services/cloud-devops" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Cloud & DevOps</Link></li>
+              <li><Link href="/services/performance" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Performance</Link></li>
+            </ul>
+          </div>
+          <div>
+            <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1.25rem", fontWeight: 500 }}>Company</div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <li><Link href="/about" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>About</Link></li>
+              <li><Link href="/process" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Process</Link></li>
+              <li><Link href="/case-studies" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Case Studies</Link></li>
+              <li><Link href="/pricing" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Pricing</Link></li>
+              <li><Link href="/blog" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Blog</Link></li>
+              <li><Link href="/faq" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>FAQ</Link></li>
+              <li><Link href="/contact" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Contact</Link></li>
+              <li><Link href="/tools/llm-cost-calculator" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>LLM Calculator</Link></li>
+            </ul>
+          </div>
+          <div>
+            <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1.25rem", fontWeight: 500 }}>Connect</div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <li><a href="https://x.com/ceoofautoplanet" target="_blank" rel="noopener noreferrer me" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Twitter / X</a></li>
+              <li><a href="https://www.linkedin.com/company/autoplanet-corporation" target="_blank" rel="noopener noreferrer me" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/autoplanet.corp" target="_blank" rel="noopener noreferrer me" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Instagram</a></li>
+              <li><a href="mailto:sales@autoplanetcorp.com" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}>Email Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.07)", paddingTop: "2rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+          <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.3)" }}>© 2026 AutoPlanet Corporation. All rights reserved.</span>
+          <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.2)" }}>Built with AI, from Villupuram to the world.</span>
+        </div>
       </footer>
     </>
   );

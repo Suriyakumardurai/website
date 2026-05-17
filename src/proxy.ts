@@ -7,13 +7,13 @@ export function proxy(request: NextRequest) {
 
   // ---- FORCE TRAILING SLASH CONSISTENCY (Remove them) ----
   if (url.pathname !== '/' && url.pathname.endsWith('/')) {
-    const newUrl = new URL(url.pathname.slice(0, -1), url.origin);
+    const newUrl = new URL(url.pathname.slice(0, -1) + url.search, url.origin);
     return NextResponse.redirect(newUrl, 308);
   }
 
   // ---- FORCE LOWERCASE URLs ----
   if (url.pathname !== url.pathname.toLowerCase()) {
-    const newUrl = new URL(url.pathname.toLowerCase(), url.origin);
+    const newUrl = new URL(url.pathname.toLowerCase() + url.search, url.origin);
     return NextResponse.redirect(newUrl, 308);
   }
 
@@ -74,6 +74,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * - Static assets (png, jpg, etc.)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|css|js|woff|woff2|ttf|eot)).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|css|js|woff|woff2|ttf|eot|glb|gltf|txt|xml|json)).*)',
   ],
 };

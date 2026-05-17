@@ -1,35 +1,77 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blogPosts } from '@/lib/blog-data';
-import { Clock, User, Calendar, ArrowLeft } from 'lucide-react';
-
-interface Props {
-  params: { slug: string };
-}
+import { Clock, User, Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
+import PageNavbar from '@/components/layout/PageNavbar';
+import PageFooter from '@/components/layout/PageFooter';
 
 interface FAQItem {
   q: string;
   a: string;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = blogPosts.find(p => p.slug === params.slug);
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find(p => p.slug === slug);
   if (!post) return { title: 'Post Not Found' };
 
   return {
     title: post.title,
     description: post.excerpt,
     keywords: post.keywords,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      url: `https://autoplanetcorp.com/blog/${slug}`,
+    },
+    alternates: {
+      canonical: `https://autoplanetcorp.com/blog/${slug}`,
+    },
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = blogPosts.find(p => p.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = blogPosts.find(p => p.slug === slug);
 
   if (!post) {
     return notFound();
   }
+
+  // BlogPosting Schema for Rich Snippets
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "publisher": {
+      "@type": "Organization",
+      "name": "AutoPlanet Corporation",
+      "url": "https://autoplanetcorp.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://autoplanetcorp.com/blog/${slug}`
+    },
+    "keywords": post.keywords.join(', ')
+  };
 
   // FAQ Schema for Rich Snippets
   const faqSchema = {
@@ -46,18 +88,24 @@ export default function BlogPostPage({ params }: Props) {
   };
 
   return (
+    <>
+    <PageNavbar />
     <article className="blog-post-container" style={{ paddingTop: '140px', paddingBottom: '100px', maxWidth: '800px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <a href="/blog" className="back-link" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', marginBottom: '40px', fontSize: '0.9rem' }}>
+      <Link href="/blog" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', marginBottom: '40px', fontSize: '0.85rem', transition: 'color 0.2s' }}>
         <ArrowLeft size={16} /> Back to blog
-      </a>
+      </Link>
 
       <header className="post-header" style={{ marginBottom: '60px' }}>
-        <div className="category-tag" style={{ color: 'var(--accent-primary)', textTransform: 'uppercase', fontSize: '0.8rem', fontWeight: 'bold', letterSpacing: '0.1em', marginBottom: '16px' }}>
+        <div style={{ color: 'var(--accent)', textTransform: 'uppercase', fontSize: '0.75rem', fontWeight: 500, letterSpacing: '0.1em', marginBottom: '1rem' }}>
           {post.category}
         </div>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: 'white', marginBottom: '24px', lineHeight: '1.1' }}>
@@ -87,13 +135,13 @@ export default function BlogPostPage({ params }: Props) {
         ))}
       </section>
 
-      <div className="post-cta" style={{ marginTop: '80px', background: 'rgba(var(--accent-rgb), 0.1)', border: '1px solid var(--accent-primary)', borderRadius: '24px', padding: '40px', textAlign: 'center' }}>
-        <h2 style={{ color: 'white', marginBottom: '16px' }}>Ready to build your {post.category.toLowerCase()} solution?</h2>
-        <p style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '32px' }}>
-          Book a free 30-minute architecture review with our lead engineers.
-        </p>
-        <a href="/contact" className="btn-primary">Book a free call</a>
+      <div className="page-cta-block" style={{ marginTop: '5rem' }}>
+        <h2>Ready to build your {post.category.toLowerCase()} solution?</h2>
+        <p>Book a free 30-minute architecture review with our lead engineers.</p>
+        <Link href="/contact" className="btn-primary" style={{ position: 'relative', zIndex: 1 }}>Book a free call <ArrowRight size={18} /></Link>
       </div>
     </article>
+    <PageFooter />
+    </>
   );
 }

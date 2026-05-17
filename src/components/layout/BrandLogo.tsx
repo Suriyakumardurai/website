@@ -1,3 +1,4 @@
+// src/components/layout/BrandLogo.tsx
 "use client";
 
 import dynamic from "next/dynamic";
@@ -9,8 +10,6 @@ const Globe = dynamic(() => import("../three/Globe"), { ssr: false });
 function AnimatedChar({ char, scrollY, range, output, maxBlur }: { char: string, scrollY: any, range: number[], output: number[], maxBlur: number }) {
   const opacity = useTransform(scrollY, range, output);
 
-  // Feathering effect (blur)
-  // We want blur when opacity is 0, and no blur when opacity is 1
   const blurRange = output.map(v => v === 1 ? 0 : maxBlur);
   const blur = useTransform(scrollY, range, blurRange);
   const filter = useTransform(blur, (v) => v === 0 ? "none" : `blur(${v}px)`);
@@ -31,15 +30,12 @@ export default function BrandLogo() {
   const name2 = "CORPORATION";
   const tagline = "APC AI-POWERED AUTOMATION | SOLUTIONS";
 
-  // Globe transforms
   const globeX = useTransform(scrollY, [0, 1200], ["-50%", "-75%"]);
   const globeY = useTransform(scrollY, [0, 1200], ["-50%", "-50%"]);
   const globeScale = useTransform(scrollY, [0, 1200], [1, 1.05]);
 
-  // Logo transform
   const logoX = useTransform(scrollY, [0, 1200], [0, 82]);
 
-  // Reveal text transforms
   const hiddenTextScale = useTransform(scrollY, [200, 1040], [0.95, 1]);
   const hiddenTextClip = useTransform(scrollY, [300, 1140], ["inset(0% 100% 0% 0%)", "inset(0% 0% 0% 0%)"]);
 
@@ -58,14 +54,13 @@ export default function BrandLogo() {
         const end = start + (textRange[1] * 0.2);
         range = [start, end];
         output = [1, 0];
-        maxBlur = 0; // Remove feather for logo
+        maxBlur = 0;
       } else {
-        // Built Beyond Better - stays visible, no fade out
         const startIn = 200 + (charIndex / totalChars) * 400;
         const endIn = startIn + 300;
         range = [startIn, endIn];
         output = [0, 1];
-        maxBlur = 4; // Slightly increased feather for "Built Beyond Better"
+        maxBlur = 4;
       }
 
       return (
@@ -159,6 +154,3 @@ export default function BrandLogo() {
     </a>
   );
 }
-
-
-
