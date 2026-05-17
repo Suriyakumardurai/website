@@ -18,7 +18,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        // Apply indexing directives only to actual HTML pages, not static assets
+        source: '/((?!_next|api|favicon|icon|og-image|robots|sitemap|llms|globe|logo|manifest).*)',
         headers: [
           { key: 'X-Robots-Tag', value: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
@@ -39,9 +40,10 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/(sitemap\\.xml|robots\\.txt)',
+        source: '/(sitemap\\.xml|sitemap-0\\.xml|robots\\.txt)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=3600, s-maxage=86400' },
+          { key: 'Content-Type', value: 'application/xml; charset=utf-8' },
         ],
       },
     ];

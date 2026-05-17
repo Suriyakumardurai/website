@@ -38,11 +38,14 @@ export const metadata: Metadata = {
   keywords: ["Enterprise AI Solutions", "Autonomous Workflows", "AI Automation India", "Corporate AI SaaS", "AutoPlanet Corporation", "Digital Transformation", "AI Development", "Web Development", "Custom LLM"],
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon-96.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '48x48' },
     ],
+    shortcut: '/favicon.png',
     apple: [
-      { url: '/favicon.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.png', sizes: '192x192', type: 'image/png' },
     ],
   },
   alternates: {

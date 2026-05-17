@@ -29,7 +29,8 @@ module.exports = {
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },
-      { userAgent: '*', disallow: ['/api', '/_next', '/*?utm_*', '/*?ref=*', '/*?fbclid=*', '/*?gclid=*'] },
+      // Block API and tracking query params only — do NOT block /_next (causes font/asset blocking in GSC)
+      { userAgent: '*', disallow: ['/api', '/*?utm_*', '/*?ref=*', '/*?fbclid=*', '/*?gclid=*'] },
       { userAgent: 'AhrefsBot', crawlDelay: 10 },
       { userAgent: 'SemrushBot', crawlDelay: 10 },
       { userAgent: 'GPTBot', allow: ['/llms.txt', '/llms-full.txt', '/blog/', '/services/'], disallow: ['/api/'] },
@@ -39,8 +40,6 @@ module.exports = {
       { userAgent: 'Google-Extended', allow: ['/llms.txt', '/llms-full.txt', '/blog/', '/services/'] },
       { userAgent: 'Applebot-Extended', allow: '/' },
     ],
-    additionalSitemaps: [
-      'https://autoplanetcorp.com/sitemap.xml',
-    ],
+    // No additionalSitemaps — next-sitemap already handles sitemap-0.xml linking correctly
   },
 };

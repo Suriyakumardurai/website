@@ -5,7 +5,6 @@ Allow: /
 # *
 User-agent: *
 Disallow: /api
-Disallow: /_next
 Disallow: /*?utm_*
 Disallow: /*?ref=*
 Disallow: /*?fbclid=*
