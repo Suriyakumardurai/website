@@ -1,0 +1,85 @@
+# AutoPlanet Corporation — Full Context for LLMs
+
+## Identity
+AutoPlanet Corporation (APC) is an AI-native engineering team founded in 2024. We ship production-ready AI systems for enterprise clients. We are NOT a consultancy or agency that adopted AI — we were born from AI as a company. Our core belief: "Every business process that involves reading, writing, deciding, or routing can be automated with AI."
+
+## What We Do
+We design, build, and deploy production-grade AI systems including:
+- **Autonomous AI Agents** — replace L1/L2 customer support, run outreach, enrich CRMs, operate internal HR/finance/ops workflows. 24/7 operation, 42ms avg latency.
+- **Custom LLM Development** — fine-tuned models on proprietary client data, RAG (Retrieval-Augmented Generation) pipelines, prompt architecture engineering, domain-specific model training.
+- **AI SaaS Products** — end-to-end builds from architecture to production-deployed SaaS with AI backend, UI/UX, auth, and Stripe billing.
+- **Workflow Automation** — intelligent data pipelines and automated business logic replacing multi-step manual processes.
+- **AI Integrations** — plug AI into existing stacks (CRM, ERP, Slack, databases) as intelligent middleware.
+- **Mobile Apps** — AI-powered iOS and Android via React Native and Flutter.
+- **UI/UX Design** — human-centered design for AI products.
+- **Cloud & DevOps** — scalable infrastructure and CI/CD for AI workloads.
+- **Performance Optimization** — Core Web Vitals, load testing, sub-second responses.
+- **Enterprise Security** — red-teaming, prompt-injection defense, private model deployment in client VPC, total data sovereignty.
+- **AI Strategy Consulting** — business process audit, opportunity mapping, prioritized roadmaps.
+- **Machine Learning Solutions** — predictive analytics, MLOps.
+- **Computer Vision** — image/video analysis, quality control, security.
+- **Predictive Analytics** — trend forecasting, decision-grade dashboards.
+
+## Engagement Model
+**Fixed-price only.** Never hourly, never surprise invoices.
+- **Quick Build** — ₹29,000, ~2 weeks. Single-agent deployment, core API, 30-day monitoring.
+- **Full Product** — ₹89,000, 4-8 weeks. Full AI SaaS with architecture, UI/UX, backend, auth, Stripe, 90-day maintenance. (Most chosen)
+- **Ongoing Partner** — ₹45,000/month. Dedicated lead engineer, weekly sprints, infinite iterations, priority R&D.
+
+### Guarantees (in writing)
+- If we can't scope within 48 hours of first call → next sprint is free
+- If we miss a deadline by more than 3 days → next sprint is free
+- Everything included: architecture, design, dev, testing, deploy, docs, support
+
+## Process (4 Steps)
+1. **Discovery call** (30 min, free, no sales pitch) — problem deep-dive, technical assessment, feasibility, timeline.
+2. **Scope & Proposal** (within 48 hours) — architecture blueprint, feature breakdown, fixed-price quote, milestones.
+3. **Build Sprint** (1-2 week cycles) — live demos every Friday, daily async updates, direct engineer access.
+4. **Deploy & Hand-off** — production deployment, full documentation, source code transfer, 30-90 day support.
+
+## Key Metrics (Production-Verified)
+- 40+ AI products shipped
+- 83% manual work eliminated (average)
+- 99.9% uptime SLA
+- 99.2% model accuracy baseline
+- 100% code ownership transfer
+- 24/7 autonomous operation
+- 3x average ROI improvement
+- 10x workflow throughput gain
+- 0 data leaks
+
+## Tech Stack
+**Frontier Models:** GPT-4o (OpenAI), Claude 3.5 (Anthropic), Gemini (Google), Llama 3 (Meta)
+**Frameworks:** Next.js, React Native, Flutter
+**Infrastructure:** VPC deployment, CI/CD for AI, observability
+**Billing:** Stripe integration
+**AI:** RAG frameworks, agentic frameworks, LangChain-style orchestration
+
+## Core Values
+1. AI-Native Engineering — intelligence at the foundation, not bolted on
+2. Speed Without Compromise — production-ready in weeks, not quarters
+3. Full Ownership — 100% source code, models, and infrastructure belong to the client
+4. Enterprise-Grade Delivery — hardened security, VPC, data sovereignty as defaults
+
+## Industries Served
+E-Commerce, Legal, Analytics SaaS, Sales/Revenue Operations, Healthcare, Finance, Manufacturing, Logistics.
+
+## Contact
+- Email: sales@autoplanetcorp.com
+- Phone: +91 7904914455
+- LinkedIn: https://linkedin.com/company/autoplanet-corporation
+- Instagram: https://instagram.com/autoplanet.corp
+- X/Twitter: https://x.com/ceoofautoplanet
+- Website: https://autoplanetcorp.com
+
+## Sitemap
+- Home: https://autoplanetcorp.com/
+- Capabilities: https://autoplanetcorp.com/services
+- Process: https://autoplanetcorp.com/process
+- Pricing: https://autoplanetcorp.com/pricing
+- About: https://autoplanetcorp.com/about
+- Careers: https://autoplanetcorp.com/careers
+- FAQ: https://autoplanetcorp.com/faq
+- Contact: https://autoplanetcorp.com/contact
+- Sitemap XML: https://autoplanetcorp.com/sitemap.xml
+- Robots: https://autoplanetcorp.com/robots.txt

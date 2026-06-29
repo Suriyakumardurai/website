@@ -1,0 +1,52 @@
+# AutoPlanet Corporation
+
+> AutoPlanet Corporation is an AI-native engineering team that ships production-ready AI systems for enterprise. We build autonomous agents, custom LLMs, RAG pipelines, workflow automation, and full SaaS builds. 100% code ownership, fixed-price, 48-hour proposals.
+
+AutoPlanet Corporation (APC) is an enterprise AI automation company that designs, builds, and deploys production-grade AI systems. We are not a consultancy that adopted AI — we were born from it. Every engagement ships with complete source code, model weights, and IP transferred to the client. No vendor lock-in, no recurring license fees.
+
+## Core Offerings
+- AI Agents (autonomous support, ops, outreach, enrichment)
+- Custom LLM Development (fine-tuning, RAG, prompt architecture)
+- AI SaaS Products (end-to-end builds with auth + billing)
+- Workflow Automation (intelligent data pipelines)
+- AI Integrations (CRM, ERP, Slack middleware)
+- Mobile Apps (React Native, Flutter)
+- Computer Vision & Predictive Analytics
+- Enterprise Security (VPC deployment, red-teaming)
+
+## Pricing Model
+Fixed-price only. Three tiers: Quick Build (~₹29,000, 2 weeks), Full Product (₹89,000, 4-8 weeks), Ongoing Partner (₹45,000/month). 48-hour proposal guarantee or next sprint free.
+
+## Key Stats
+- 40+ AI systems shipped
+- 99.9% uptime SLA
+- 99.2% model accuracy baseline
+- 100% code ownership
+- 24/7 autonomous operation
+- 3x avg ROI improvement
+
+## Process
+1. Free 30-min discovery call
+2. 48-hour scoped proposal
+3. 1-2 week build sprints with Friday demos
+4. Deploy & hand-off with 30-90 day support
+
+## Tech Stack
+GPT-4o, Claude 3.5, Gemini, Llama 3, Next.js, React Native, Flutter, Stripe, RAG frameworks, agentic frameworks.
+
+## Contact
+- Email: sales@autoplanetcorp.com
+- Phone: +91 7904914455
+- LinkedIn: https://linkedin.com/company/autoplanet-corporation
+- Instagram: https://instagram.com/autoplanet.corp
+- X/Twitter: https://x.com/ceoofautoplanet
+
+## Links
+- [Home](https://autoplanetcorp.com/)
+- [Capabilities](https://autoplanetcorp.com/services)
+- [Process](https://autoplanetcorp.com/process)
+- [Pricing](https://autoplanetcorp.com/pricing)
+- [About](https://autoplanetcorp.com/about)
+- [Careers](https://autoplanetcorp.com/careers)
+- [FAQ](https://autoplanetcorp.com/faq)
+- [Contact](https://autoplanetcorp.com/contact)
