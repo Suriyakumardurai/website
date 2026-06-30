@@ -6,6 +6,7 @@ import { Check } from "lucide-react";
 import { TiltCard } from "@/components/site/tilt-card";
 import { CtaBand } from "@/components/site/shared";
 import { services, techStack } from "@/lib/content";
+import { MobileServicesContent } from "@/components/site/mobile-page-content";
 
 // Group services into editorial tiers
 const groups = [
@@ -17,7 +18,11 @@ const groups = [
 export default function ServicesContent() {
   return (
     <>
-      <section className="relative py-14 sm:py-20">
+      {/* Mobile-only services content */}
+      <MobileServicesContent />
+
+      {/* Desktop services content — original (lg+ only) */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {groups.map((g, gi) => {
             const slice = services.slice(g.range[0], g.range[1]);
@@ -81,8 +86,8 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Tech stack */}
-      <section className="relative py-16 bg-muted/30 border-y border-border">
+      {/* Tech stack — desktop only (mobile version is in MobileServicesContent) */}
+      <section className="hidden lg:block relative py-16 bg-muted/30 border-y border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-6">
             Models &amp; infrastructure we build on

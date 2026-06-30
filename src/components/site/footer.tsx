@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Linkedin, Instagram, Mail } from "lucide-react";
 import { company } from "@/lib/content";
+import MobileFooter from "@/components/site/mobile-footer";
 
 const footerLinks = [
   {
@@ -42,7 +43,12 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-foreground text-background mt-auto">
+    <>
+      {/* Mobile-only footer (renders below lg) */}
+      <MobileFooter />
+
+      {/* Desktop footer — original (lg+ only) */}
+      <footer className="hidden lg:block relative bg-foreground text-background mt-auto">
       {/* main */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-5 gap-8">
@@ -122,5 +128,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

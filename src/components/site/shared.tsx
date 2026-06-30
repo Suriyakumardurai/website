@@ -5,10 +5,16 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/reveal";
+import { MobileCtaBand } from "@/components/site/mobile-home-sections";
 
 export function CtaBand() {
   return (
-    <section className="relative py-16 sm:py-24 bg-foreground text-background overflow-hidden">
+    <>
+      {/* Mobile-only CTA band */}
+      <MobileCtaBand />
+
+      {/* Desktop CTA band — original (lg+ only) */}
+      <section className="hidden lg:block relative py-16 sm:py-24 bg-foreground text-background overflow-hidden">
       {/* grid */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -88,5 +94,6 @@ export function CtaBand() {
         </Reveal>
       </div>
     </section>
+    </>
   );
 }

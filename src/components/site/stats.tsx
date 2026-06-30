@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { stats, liveStats } from "@/lib/content";
 import { useCountUp, useInView } from "@/hooks/use-count-up";
 import { Reveal, RevealHeading } from "@/components/site/reveal";
+import { MobileMarquee, MobileStats, MobileLiveOps } from "@/components/site/mobile-home-sections";
 
 export function Marquee() {
   const items = [
@@ -19,7 +20,12 @@ export function Marquee() {
     "MLOps",
   ];
   return (
-    <div className="relative border-y border-border bg-foreground/95 py-3.5 overflow-hidden">
+    <>
+      {/* Mobile-only marquee */}
+      <MobileMarquee />
+
+      {/* Desktop marquee — original (lg+ only) */}
+      <div className="hidden lg:block relative border-y border-border bg-foreground/95 py-3.5 overflow-hidden">
       <div className="flex w-max animate-marquee">
         {[0, 1].map((dup) => (
           <div key={dup} className="flex items-center" aria-hidden={dup === 1}>
@@ -35,6 +41,7 @@ export function Marquee() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 
@@ -42,7 +49,12 @@ export default function Stats() {
   const [ref, inView] = useInView<HTMLDivElement>(0.2);
 
   return (
-    <section className="relative py-20 sm:py-28">
+    <>
+      {/* Mobile-only stats */}
+      <MobileStats />
+
+      {/* Desktop stats — original (lg+ only) */}
+      <section className="hidden lg:block relative py-20 sm:py-28">
       <div ref={ref} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-8">
           <Reveal className="lg:col-span-7">
@@ -70,6 +82,7 @@ export default function Stats() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
@@ -109,7 +122,12 @@ function StatCell({
 export function LiveOps() {
   const [ref, inView] = useInView<HTMLDivElement>(0.3);
   return (
-    <section className="relative py-20 sm:py-24 bg-foreground text-background overflow-hidden">
+    <>
+      {/* Mobile-only live ops */}
+      <MobileLiveOps />
+
+      {/* Desktop live ops — original (lg+ only) */}
+      <section className="hidden lg:block relative py-20 sm:py-24 bg-foreground text-background overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
@@ -146,6 +164,7 @@ export function LiveOps() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

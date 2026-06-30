@@ -9,6 +9,7 @@ import {
   TechStrip,
 } from "@/components/site/home-sections";
 import { CtaBand } from "@/components/site/shared";
+import MobileROICalculator from "@/components/site/mobile-roi-calculator";
 
 export const metadata: Metadata = {
   title: "AutoPlanet Corporation — Enterprise AI, Engineered to Ship",
@@ -34,6 +35,8 @@ export default function Home() {
       <LiveOps />
       <ProcessPreview />
       <PricingPreview />
+      {/* Mobile-only ROI Calculator */}
+      <MobileROICalculator />
       <TestimonialsSection />
       <CtaBand />
     </div>

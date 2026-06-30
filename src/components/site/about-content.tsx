@@ -6,6 +6,7 @@ import { Server, ShieldCheck, GitBranch, Layers, Cpu, Bot, Database, Cloud } fro
 import { CtaBand } from "@/components/site/shared";
 import { coreValues, techStack, capabilities } from "@/lib/content";
 import { LiveOps } from "@/components/site/stats";
+import { MobileAboutContent } from "@/components/site/mobile-page-content";
 
 const platformPillars = [
   { icon: Layers, title: "AI-native architecture", desc: "Intelligence at the foundation — not bolted onto legacy systems. Every workflow designed around model capabilities from day one." },
@@ -25,8 +26,11 @@ const stackLayers = [
 export default function AboutContent() {
   return (
     <>
-      {/* Story */}
-      <section className="relative py-14 sm:py-20">
+      {/* Mobile-only about content */}
+      <MobileAboutContent />
+
+      {/* Story — desktop only */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
@@ -121,8 +125,8 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* Platform pillars */}
-      <section className="relative py-20 sm:py-28 bg-muted/30">
+      {/* Platform pillars — desktop only */}
+      <section className="hidden lg:block relative py-20 sm:py-28 bg-muted/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] lime-text mb-3">
             Platform principles
@@ -158,8 +162,8 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="relative py-20 sm:py-28">
+      {/* Values — desktop only */}
+      <section className="hidden lg:block relative py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-4">
@@ -200,8 +204,8 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* Tech stack */}
-      <section className="relative py-16 bg-muted/30 border-y border-border">
+      {/* Tech stack — desktop only */}
+      <section className="hidden lg:block relative py-16 bg-muted/30 border-y border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-6">
             Models &amp; infrastructure we build on

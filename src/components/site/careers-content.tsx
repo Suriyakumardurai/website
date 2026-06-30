@@ -7,11 +7,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CtaBand } from "@/components/site/shared";
 import { jobs } from "@/lib/content";
+import { MobileCareersContent } from "@/components/site/mobile-page-content";
 
 export default function CareersContent() {
   return (
     <>
-      <section className="relative py-14 sm:py-20">
+      {/* Mobile-only careers content */}
+      <MobileCareersContent />
+
+      {/* Desktop careers content — original (lg+ only) */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-6">
             {jobs.map((job, i) => (

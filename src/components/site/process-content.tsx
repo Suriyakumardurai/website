@@ -5,6 +5,7 @@ import * as Icons from "lucide-react";
 import { Clock, ShieldCheck, FileText, GitBranch } from "lucide-react";
 import { CtaBand } from "@/components/site/shared";
 import { processSteps, pricingGuarantees } from "@/lib/content";
+import { MobileProcessContent } from "@/components/site/mobile-page-content";
 
 const artifacts = [
   { icon: FileText, label: "Architecture blueprint", note: "System diagram + tech selection" },
@@ -15,7 +16,11 @@ const artifacts = [
 export default function ProcessContent() {
   return (
     <>
-      <section className="relative py-14 sm:py-20">
+      {/* Mobile-only process content */}
+      <MobileProcessContent />
+
+      {/* Desktop process content — original (lg+ only) */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12">
             {/* Left: timeline */}

@@ -382,3 +382,454 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE-FIRST DESIGN SYSTEM (only active below lg breakpoint)
+   Adds: safe-area insets, native-app-like bottom bar, snap scroll,
+   haptic-style micro-interactions, mobile-only surfaces & glows.
+   Desktop (lg+) is 100% untouched — these utilities are inert there.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* iOS-safe-area helpers — used by sticky bottom nav/CTA */
+.safe-pt { padding-top: env(safe-area-inset-top); }
+.safe-pb { padding-bottom: env(safe-area-inset-bottom); }
+.safe-mb { margin-bottom: env(safe-area-inset-bottom); }
+.safe-px { padding-left: max(env(safe-area-inset-left), 1rem); padding-right: max(env(safe-area-inset-right), 1rem); }
+
+/* Hide native horizontal scrollbar for swipe rails */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Horizontal snap-scroll rail (mobile carousel) */
+.snap-rail {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-left: 1rem;
+}
+.snap-rail > * { scroll-snap-align: start; }
+
+/* Vertical section snap (mobile immersive) — opt-in per page */
+.snap-y-container {
+  scroll-snap-type: y proximity;
+}
+.snap-y-section { scroll-snap-align: start; }
+
+/* Mobile-only premium surfaces */
+.m-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.74));
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid oklch(0.9 0 0);
+}
+.m-glass-dark {
+  background: linear-gradient(180deg, rgba(13,13,21,0.92), rgba(13,13,21,0.84));
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.m-card {
+  background: oklch(1 0 0);
+  border: 1px solid oklch(0.92 0 0);
+  box-shadow:
+    0 1px 2px -1px rgba(13, 13, 21, 0.04),
+    0 8px 24px -16px rgba(13, 13, 21, 0.12);
+}
+.m-card-flat {
+  background: oklch(0.985 0 0);
+  border: 1px solid oklch(0.93 0 0);
+}
+
+/* Mobile haptic-feel press (active state micro-interaction) */
+.m-press {
+  transition: transform 0.18s cubic-bezier(.2,.7,.2,1), box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.m-press:active {
+  transform: scale(0.97);
+}
+
+/* Tap target minimum — 44px */
+.m-tap { min-height: 44px; min-width: 44px; }
+
+/* Lime gradient hairline (mobile-only accent rule) */
+.m-lime-rule {
+  background: linear-gradient(90deg, transparent, oklch(0.7 0.19 128) 50%, transparent);
+}
+
+/* Mobile-only chip — pill with subtle gradient */
+.m-chip {
+  background: linear-gradient(180deg, oklch(0.985 0 0), oklch(0.96 0 0));
+  border: 1px solid oklch(0.9 0 0);
+  box-shadow: 0 1px 0 0 oklch(0.99 0 0) inset;
+}
+
+/* Mobile immersive hero gradient (top-of-page fade) */
+.m-hero-fade {
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 8%, rgba(132,204,22,0.10) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.65) 70%, rgba(255,255,255,1) 100%);
+}
+
+/* Mobile section header rule — full bleed lime accent */
+.m-section-rule {
+  height: 1px;
+  background: linear-gradient(90deg, oklch(0.7 0.19 128) 0%, oklch(0.9 0 0) 30%, transparent 100%);
+}
+
+/* Bottom nav active pill glow */
+.m-nav-glow {
+  box-shadow: 0 0 0 4px oklch(0.7 0.19 128 / 0.18), 0 8px 16px -8px oklch(0.7 0.19 128 / 0.5);
+}
+
+/* Mobile-specific entrance animations */
+@keyframes m-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.m-rise { animation: m-rise 0.55s cubic-bezier(.22,1,.36,1) both; }
+
+@keyframes m-pop {
+  0% { opacity: 0; transform: scale(0.94); }
+  60% { transform: scale(1.01); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.m-pop { animation: m-pop 0.45s cubic-bezier(.22,1,.36,1) both; }
+
+@keyframes m-slide-up-sheet {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.m-sheet-enter { animation: m-slide-up-sheet 0.4s cubic-bezier(.22,1,.36,1) both; }
+
+/* Subtle pulse for live indicators on mobile */
+@keyframes m-live {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 oklch(0.7 0.19 128 / 0.6); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px oklch(0.7 0.19 128 / 0); }
+}
+.m-live { animation: m-live 2s ease-in-out infinite; }
+
+/* Bottom sheet drag handle */
+.m-drag-handle {
+  width: 36px; height: 4px; border-radius: 9999px;
+  background: oklch(0.86 0 0);
+  margin: 8px auto 4px;
+}
+
+/* Mobile overscroll bounce control */
+html { overscroll-behavior-y: none; }
+
+/* Mobile bottom-nav height variable (used by layout) */
+:root { --m-nav-h: 64px; --m-cta-h: 0px; }
+
+/* Mobile section padding tokens — applied via class on <main> only on mobile */
+.m-section-tight { padding-top: 56px; padding-bottom: 56px; }
+.m-section-normal { padding-top: 72px; padding-bottom: 72px; }
+
+/* Inset for content above the bottom nav/CTA on mobile */
+.m-content-inset { padding-bottom: calc(var(--m-nav-h) + var(--m-cta-h) + 16px); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCED MOBILE-ONLY POLISH (round 2)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Swipe-hint gradient fade on horizontal rails (left + right edges) */
+.m-rail-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+
+/* "Swipe →" hint chip that animates once on first reveal */
+@keyframes m-swipe-nudge {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(4px); opacity: 1; }
+}
+.m-swipe-hint { animation: m-swipe-nudge 1.6s ease-in-out infinite; }
+
+/* Shimmering skeleton loader for mobile content */
+@keyframes m-skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.m-skeleton {
+  background: linear-gradient(90deg, oklch(0.96 0 0) 0%, oklch(0.92 0 0) 50%, oklch(0.96 0 0) 100%);
+  background-size: 200% 100%;
+  animation: m-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Subtle page enter animation — applied to main content on mobile route changes */
+@keyframes m-page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.m-page-enter { animation: m-page-enter 0.4s cubic-bezier(.22,1,.36,1) both; }
+
+/* Floating glow for FABs on mobile */
+@keyframes m-fab-glow {
+  0%, 100% { box-shadow: 0 8px 24px -6px rgba(13,13,21,0.4), 0 0 0 0 rgba(132,204,22,0.4); }
+  50% { box-shadow: 0 8px 24px -6px rgba(13,13,21,0.4), 0 0 0 8px rgba(132,204,22,0); }
+}
+.m-fab-glow { animation: m-fab-glow 2.5s ease-in-out infinite; }
+
+/* Lime conic shimmer for highlighted tier cards on mobile */
+@keyframes m-conic-shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.m-conic-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from 0deg, transparent 0deg, oklch(0.7 0.19 128) 60deg, transparent 120deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  animation: m-conic-shimmer 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Active section indicator pulse */
+@keyframes m-section-active {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.m-section-active { animation: m-section-active 1.6s ease-in-out infinite; }
+
+/* Improved mobile touch feedback — ripple-like */
+.m-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.m-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, oklch(0.7 0.19 128 / 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.m-ripple:active::after {
+  opacity: 1;
+  transition: opacity 0s;
+}
+
+/* Refined mobile CTA gradient button */
+.m-cta-gradient {
+  background: linear-gradient(135deg, oklch(0.13 0.005 264) 0%, oklch(0.25 0.01 264) 100%);
+  position: relative;
+}
+.m-cta-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, oklch(0.7 0.19 128 / 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.m-cta-gradient:active::before { opacity: 1; }
+
+/* Mobile-only sticky-section heading */
+.m-sticky-heading {
+  position: sticky;
+  top: 56px;
+  z-index: 20;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 80%, rgba(255,255,255,0) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 8px 0;
+}
+
+/* Hide caret on inputs in mobile (cleaner look) */
+input:focus, textarea:focus { caret-color: oklch(0.7 0.19 128); }
+
+/* Pull-to-refresh indicator (CSS-only, animated by JS scroll position) */
+.m-ptr-indicator {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  transition: transform 0.2s ease;
+  z-index: 65;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE DARK THEME (round 5)
+   Only active below lg breakpoint + when data-mobile-theme="dark"
+   Desktop (lg+) is NEVER affected by this.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+  html[data-mobile-theme="dark"] {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    color-scheme: dark;
+  }
+
+  /* Mobile dark theme — surface overrides */
+  html[data-mobile-theme="dark"] body {
+    background: oklch(0.145 0 0);
+    color: oklch(0.985 0 0);
+  }
+
+  html[data-mobile-theme="dark"] .m-glass {
+    background: linear-gradient(180deg, rgba(20,20,26,0.92), rgba(20,20,26,0.84));
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  html[data-mobile-theme="dark"] .m-glass-dark {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  html[data-mobile-theme="dark"] .m-card {
+    background: oklch(0.205 0 0);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 1px 2px -1px rgba(0,0,0,0.3), 0 8px 24px -16px rgba(0,0,0,0.5);
+  }
+  html[data-mobile-theme="dark"] .m-card-flat {
+    background: oklch(0.18 0 0);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  html[data-mobile-theme="dark"] .m-chip {
+    background: linear-gradient(180deg, oklch(0.22 0 0), oklch(0.18 0 0));
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 1px 0 0 rgba(255,255,255,0.04) inset;
+  }
+
+  /* Dark theme — brand text colors */
+  html[data-mobile-theme="dark"] .brand-name,
+  html[data-mobile-theme="dark"] .brand-reveal {
+    color: oklch(0.985 0 0);
+  }
+  html[data-mobile-theme="dark"] .brand-tagline {
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Dark theme — skeleton */
+  html[data-mobile-theme="dark"] .m-skeleton {
+    background: linear-gradient(90deg, oklch(0.22 0 0) 0%, oklch(0.28 0 0) 50%, oklch(0.22 0 0) 100%);
+    background-size: 200% 100%;
+  }
+
+  /* Dark theme — sticky heading */
+  html[data-mobile-theme="dark"] .m-sticky-heading {
+    background: linear-gradient(180deg, rgba(20,20,26,0.95) 0%, rgba(20,20,26,0.85) 80%, rgba(20,20,26,0) 100%);
+  }
+
+  /* Dark theme — scrollbar */
+  html[data-mobile-theme="dark"] ::-webkit-scrollbar-track {
+    background: oklch(0.18 0 0);
+  }
+  html[data-mobile-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: oklch(0.35 0 0);
+    border: 3px solid oklch(0.18 0 0);
+  }
+
+  /* Dark theme — selection */
+  html[data-mobile-theme="dark"] ::selection {
+    background: oklch(0.7 0.19 128 / 0.3);
+    color: oklch(0.985 0 0);
+  }
+
+  /* Dark theme — 3D background scrim (darken for readability) */
+  html[data-mobile-theme="dark"] .fixed.inset-0.-z-10 .absolute.inset-0:last-child {
+    background: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(20,20,26,0.3) 0%, rgba(20,20,26,0.6) 60%, rgba(20,20,26,0.9) 100%) !important;
+  }
+
+  /* Smooth theme transition */
+  html[data-mobile-theme] body,
+  html[data-mobile-theme] .m-card,
+  html[data-mobile-theme] .m-card-flat,
+  html[data-mobile-theme] .m-chip,
+  html[data-mobile-theme] .m-glass {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE ACCESSIBILITY SETTINGS (round 6)
+   Font size, reduce motion, high contrast.
+   Only active below lg breakpoint.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+  /* Font size scaling — adjusts root rem on mobile only */
+  html[data-m-font="sm"] { font-size: 14px; }
+  html[data-m-font="default"] { font-size: 16px; }
+  html[data-m-font="lg"] { font-size: 18px; }
+  html[data-m-font="xl"] { font-size: 20px; }
+
+  /* Reduce motion — disable animations */
+  html[data-m-motion="reduce"] *,
+  html[data-m-motion="reduce"] *::before,
+  html[data-m-motion="reduce"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html[data-m-motion="reduce"] .animate-marquee,
+  html[data-m-motion="reduce"] .animate-soft-float,
+  html[data-m-motion="reduce"] .m-live,
+  html[data-m-motion="reduce"] .m-swipe-hint,
+  html[data-m-motion="reduce"] .animate-pulse-dot {
+    animation: none !important;
+  }
+
+  /* High contrast — stronger borders + text colors */
+  html[data-m-contrast="high"] {
+    --foreground: oklch(0.08 0 0);
+    --muted-foreground: oklch(0.35 0 0);
+    --border: oklch(0.75 0 0);
+  }
+  html[data-m-contrast="high"] .m-card,
+  html[data-m-contrast="high"] .m-card-flat {
+    border-width: 1.5px;
+    border-color: oklch(0.7 0 0);
+  }
+  html[data-m-contrast="high"] .m-glass {
+    border-width: 1.5px;
+    border-color: oklch(0.7 0 0);
+    background: rgba(255, 255, 255, 0.98);
+  }
+  html[data-m-contrast="high"] .m-chip {
+    border-width: 1.5px;
+    border-color: oklch(0.7 0 0);
+  }
+  html[data-m-contrast="high"] .lime-text {
+    color: oklch(0.55 0.20 128);
+    font-weight: 600;
+  }
+  html[data-m-contrast="high"] .lime-bg {
+    background-color: oklch(0.55 0.20 128);
+  }
+  html[data-m-contrast="high"] a,
+  html[data-m-contrast="high"] button {
+    outline-color: oklch(0.55 0.20 128);
+  }
+}
+
+/* Mobile search highlight (content search) */
+.m-search-highlight {
+  animation: m-search-flash 1.5s ease-out;
+}
+@keyframes m-search-flash {
+  0% { background-color: oklch(0.7 0.19 128 / 0.3); }
+  100% { background-color: transparent; }
+}
+

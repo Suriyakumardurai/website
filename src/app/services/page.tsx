@@ -3,6 +3,7 @@ import PageIntro from "@/components/site/page-intro";
 import ServicesContent from "@/components/site/services-content";
 import { ServiceListJsonLd } from "@/components/site/structured-data";
 import { services } from "@/lib/content";
+import MobileServiceRecommender from "@/components/site/mobile-service-recommender";
 
 export const metadata: Metadata = {
   title: "AI Capabilities & Services",
@@ -46,6 +47,8 @@ export default function ServicesPage() {
           { value: "100%", label: "Code ownership" },
         ]}
       />
+      {/* Mobile-only Service Recommender quiz */}
+      <MobileServiceRecommender />
       <ServicesContent />
     </>
   );

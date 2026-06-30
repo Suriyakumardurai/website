@@ -7,6 +7,7 @@ import { ArrowRight, ArrowUp, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/site/magnetic-button";
 import { capabilities, company } from "@/lib/content";
+import MobileHero from "@/components/site/mobile-hero";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -22,7 +23,12 @@ export default function Hero() {
   const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-[94vh] flex items-center pt-28 pb-20 overflow-hidden">
+    <>
+      {/* Mobile-only hero — immersive, app-like */}
+      <MobileHero />
+
+      {/* Desktop hero — original (lg+ only) */}
+      <section ref={ref} className="hidden lg:flex relative min-h-[94vh] items-center pt-28 pb-20 overflow-hidden">
       {/* legibility gradient over the global 3D background */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -187,5 +193,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
+    </>
   );
 }

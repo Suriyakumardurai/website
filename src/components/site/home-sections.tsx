@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { TiltCard } from "@/components/site/tilt-card";
 import { Reveal, RevealHeading, StaggerGroup, StaggerItem, Eyebrow } from "@/components/site/reveal";
 import { services, processSteps, tiers, testimonials, techStack } from "@/lib/content";
+import {
+  MobileServicesPreview,
+  MobileProcessPreview,
+  MobilePricingPreview,
+  MobileTestimonials,
+  MobileTechStrip,
+} from "@/components/site/mobile-home-sections";
 
 /* ── Services preview: editorial bento ── */
 export function ServicesPreview() {
@@ -16,7 +23,12 @@ export function ServicesPreview() {
   const FIcon = (Icons as Record<string, Icons.LucideIcon>)[featured.icon] ?? Icons.Box;
 
   return (
-    <section className="relative py-16 sm:py-24">
+    <>
+      {/* Mobile-only services preview */}
+      <MobileServicesPreview />
+
+      {/* Desktop services preview — original (lg+ only) */}
+      <section className="hidden lg:block relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
           <div className="max-w-2xl">
@@ -85,13 +97,19 @@ export function ServicesPreview() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
 /* ── Process preview: horizontal strip ── */
 export function ProcessPreview() {
   return (
-    <section className="relative py-16 sm:py-24">
+    <>
+      {/* Mobile-only process preview */}
+      <MobileProcessPreview />
+
+      {/* Desktop process preview — original (lg+ only) */}
+      <section className="hidden lg:block relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
           <div className="max-w-2xl">
@@ -132,13 +150,19 @@ export function ProcessPreview() {
         </StaggerGroup>
       </div>
     </section>
+    </>
   );
 }
 
 /* ── Pricing preview ── */
 export function PricingPreview() {
   return (
-    <section className="relative py-16 sm:py-24 bg-muted/40">
+    <>
+      {/* Mobile-only pricing preview */}
+      <MobilePricingPreview />
+
+      {/* Desktop pricing preview — original (lg+ only) */}
+      <section className="hidden lg:block relative py-16 sm:py-24 bg-muted/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center max-w-2xl mx-auto mb-10">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -202,13 +226,19 @@ export function PricingPreview() {
         </Reveal>
       </div>
     </section>
+    </>
   );
 }
 
 /* ── Testimonials ── */
 export function TestimonialsSection() {
   return (
-    <section className="relative py-16 sm:py-24">
+    <>
+      {/* Mobile-only testimonials */}
+      <MobileTestimonials />
+
+      {/* Desktop testimonials — original (lg+ only) */}
+      <section className="hidden lg:block relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28">
@@ -242,13 +272,19 @@ export function TestimonialsSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
 /* ── Tech stack strip ── */
 export function TechStrip() {
   return (
-    <section className="relative py-12 border-y border-border">
+    <>
+      {/* Mobile-only tech strip */}
+      <MobileTechStrip />
+
+      {/* Desktop tech strip — original (lg+ only) */}
+      <section className="hidden lg:block relative py-12 border-y border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
@@ -265,5 +301,6 @@ export function TechStrip() {
         </Reveal>
       </div>
     </section>
+    </>
   );
 }

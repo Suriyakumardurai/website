@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { CtaBand } from "@/components/site/shared";
 import { faqs } from "@/lib/content";
+import { MobileFaqContent } from "@/components/site/mobile-page-content";
 
 const categories = ["All", "Engagement", "Ownership", "Tech", "Process", "Support"];
 
@@ -19,7 +20,11 @@ export default function FaqContent() {
 
   return (
     <>
-      <section className="relative py-14 sm:py-20">
+      {/* Mobile-only FAQ content */}
+      <MobileFaqContent />
+
+      {/* Desktop FAQ content — original (lg+ only) */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* category filter */}
           <div className="flex flex-wrap gap-2 mb-10">

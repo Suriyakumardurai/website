@@ -8,6 +8,7 @@ import { Reveal, RevealHeading, StaggerGroup, StaggerItem } from "@/components/s
 import { tiers, pricingGuarantees } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { MobilePricingContent } from "@/components/site/mobile-page-content";
 
 const comparison = [
   { feature: "Source code ownership", quick: true, full: true, partner: true },
@@ -23,8 +24,11 @@ const comparison = [
 export default function PricingContent() {
   return (
     <>
-      {/* Tier cards */}
-      <section className="relative py-14 sm:py-20">
+      {/* Mobile-only pricing content */}
+      <MobilePricingContent />
+
+      {/* Tier cards — desktop only */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <StaggerGroup className="grid lg:grid-cols-3 gap-4 lg:gap-5 items-stretch">
             {tiers.map((tier) => (
@@ -107,8 +111,8 @@ export default function PricingContent() {
         </div>
       </section>
 
-      {/* Comparison table */}
-      <section className="relative py-14 sm:py-20 bg-muted/30 border-y border-border">
+      {/* Comparison table — desktop only */}
+      <section className="hidden lg:block relative py-14 sm:py-20 bg-muted/30 border-y border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl mb-10">
             <p className="text-[11px] font-mono uppercase tracking-[0.25em] lime-text mb-3">

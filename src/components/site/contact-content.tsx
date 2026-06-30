@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { company } from "@/lib/content";
+import { MobileContactContent } from "@/components/site/mobile-page-content";
 
 const channels = [
   { icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}` },
@@ -75,7 +76,12 @@ export default function ContactContent() {
   }
 
   return (
-    <section className="relative py-14 sm:py-20">
+    <>
+      {/* Mobile-only contact content */}
+      <MobileContactContent />
+
+      {/* Desktop contact content — original (lg+ only) */}
+      <section className="hidden lg:block relative py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left: channels + assurances */}
@@ -204,5 +210,6 @@ export default function ContactContent() {
         </div>
       </div>
     </section>
+    </>
   );
 }

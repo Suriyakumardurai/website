@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import MobilePageIntro from "@/components/site/mobile-page-intro";
 
 type Crumb = { label: string; href?: string };
 
@@ -28,7 +29,19 @@ export default function PageIntro({
   stats?: { value: string; label: string }[];
 }) {
   return (
-    <section className="relative pt-32 pb-14 sm:pt-40 sm:pb-20 border-b border-border">
+    <>
+      {/* Mobile-only page intro */}
+      <MobilePageIntro
+        eyebrow={eyebrow}
+        title={title}
+        titleAccent={titleAccent}
+        description={description}
+        crumbs={crumbs}
+        stats={stats}
+      />
+
+      {/* Desktop page intro — original (lg+ only) */}
+      <section className="hidden lg:block relative pt-32 pb-14 sm:pt-40 sm:pb-20 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {crumbs && crumbs.length > 0 && (
           <motion.nav
@@ -112,5 +125,6 @@ export default function PageIntro({
         )}
       </div>
     </section>
+    </>
   );
 }

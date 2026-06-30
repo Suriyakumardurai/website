@@ -6,6 +6,27 @@ import Navbar from "@/components/site/navbar";
 import Footer from "@/components/site/footer";
 import GlobalBackground from "@/components/site/global-background";
 import ScrollToTop from "@/components/site/scroll-to-top";
+import MobileNav from "@/components/site/mobile-nav";
+import MobileStickyCTA from "@/components/site/mobile-sticky-cta";
+import MobileQuickContact from "@/components/site/mobile-quick-contact";
+import MobileSectionNav from "@/components/site/mobile-section-nav";
+import MobileBackGesture from "@/components/site/mobile-back-gesture";
+import MobileReadingRing from "@/components/site/mobile-reading-ring";
+import MobilePullToRefresh from "@/components/site/mobile-pull-to-refresh";
+import { MobileBookmarkButton } from "@/components/site/mobile-bookmarks";
+import MobileCommandPalette from "@/components/site/mobile-command-palette";
+import MobileOfflineIndicator from "@/components/site/mobile-offline-indicator";
+import MobileCompareSheet from "@/components/site/mobile-compare";
+import MobileFeedback from "@/components/site/mobile-feedback";
+import MobileOnboarding from "@/components/site/mobile-onboarding";
+import MobileGestureTutorial from "@/components/site/mobile-gesture-tutorial";
+import { MobileReadingListButton } from "@/components/site/mobile-reading-list";
+import { MobileContentSearchButton } from "@/components/site/mobile-content-search";
+import MobileQuickActions from "@/components/site/mobile-quick-actions";
+import { MobileContentBookmarkPrompt } from "@/components/site/mobile-content-bookmarks";
+import MobileReadingProgressSync from "@/components/site/mobile-reading-progress-sync";
+import MobileRecentlyClosed from "@/components/site/mobile-recently-closed";
+import MobileSocialProof from "@/components/site/mobile-social-proof";
 import { GlobalStructuredData } from "@/components/site/structured-data";
 import { SITE_CONFIG } from "@/lib/site";
 
@@ -187,9 +208,30 @@ export default function RootLayout({
         <GlobalBackground />
         <div className="relative min-h-screen flex flex-col">
           <Navbar />
+          <MobileNav />
           <main className="flex-1 relative z-10">{children}</main>
           <Footer />
         </div>
+        <MobileStickyCTA />
+        <MobileQuickContact />
+        <MobileSectionNav />
+        <MobileBackGesture />
+        <MobileReadingRing />
+        <MobilePullToRefresh />
+        <MobileBookmarkButton />
+        <MobileCommandPalette />
+        <MobileOfflineIndicator />
+        <MobileCompareSheet />
+        <MobileFeedback />
+        <MobileOnboarding />
+        <MobileGestureTutorial />
+        <MobileReadingListButton />
+        <MobileContentSearchButton />
+        <MobileQuickActions />
+        <MobileContentBookmarkPrompt />
+        <MobileReadingProgressSync />
+        <MobileRecentlyClosed />
+        <MobileSocialProof />
         <ScrollToTop />
         <Toaster />
       </body>
